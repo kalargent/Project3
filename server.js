@@ -14,6 +14,10 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
+const usersRoute = require('./routes/users');
+
+app.use('/users', usersRoute)
+
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

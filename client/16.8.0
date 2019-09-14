@@ -1,0 +1,6 @@
++ react-dom@16.9.0
++ react@16.9.0
++ react-bootstrap@1.0.0-beta.12
+updated 3 packages and audited 38409 packages in 33.425s
+found 68 vulnerabilities (63 low, 5 high)
+  run `npm audit fix` to fix them, or `npm audit` for details

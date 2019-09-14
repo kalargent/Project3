@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Welcome from "./pages/Welcome"
+
 
 class App extends Component {
   render() {

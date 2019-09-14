@@ -13,10 +13,10 @@ function Login() {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Password" />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button className="m-2" variant="primary" type="submit">
         Submit
       </Button>
-      <Button variant="primary" type="register">
+      <Button className="m-2" variant="primary" type="register">
         Register
       </Button>
     </Form>

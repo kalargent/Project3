@@ -1,3 +1,9 @@
+/*
+PASSPORT STRATEGIES
+
+These should not need to be edited unless we decide to change the routes.
+*/
+
 var localStrategy = require("passport-local").Strategy;
 var mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");

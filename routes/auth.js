@@ -1,14 +1,23 @@
+/*
+THIS FILE SHOULD CONTAIN PUBLIC (UNAUTHENTICATED) ROUTES ONLY
+
+These are routes like Register and Authenticate (Login) that do not require a JWT to access.
+*/
+
 const express = require('express');
 const router  = express.Router();
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
 
 
-/* POST login. */
+/* POST AUTH USING PASSPORT. 
+This route uses passport.authenticate to authenticate the user and generate 
+a JWT that will be used on protected routes. 
+*/
 router.post('/login', function (req, res) {
-    console.log("login before auteh is called"); 
+    // console.log("login before auth is called"); 
     passport.authenticate('local', {session: false}, (err, user) => {
-        console.log("inside auth")
+        // console.log("inside auth")
         if (err || !user) {
             return res.status(400).json({
                 message: 'Something is not right',
@@ -16,7 +25,7 @@ router.post('/login', function (req, res) {
             });
         } 
        req.login(user, {session: false}, (err) => {
-           console.log("inside login")
+        //    console.log("inside login")
            console.log(user); 
            if (err) {
                res.send(err);
@@ -27,6 +36,11 @@ router.post('/login', function (req, res) {
         });
     })(req, res);
 });
+
+/* REGISTER. 
+This route takes in the users information, 
+uses bcrypt to encrypt their password, and saves them to the database. 
+*/
 
 router.route('/register').post((req, res) => {
     // testing 

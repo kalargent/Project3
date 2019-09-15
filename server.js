@@ -7,6 +7,10 @@ const passport = require ("passport");
 const session = require("express-session"); 
 const flash = require("connect-flash")
 
+// Passport Config 
+require("./config/passport")(passport); 
+
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -20,30 +24,22 @@ mongoose.connect(db, { useNewUrlParser: true })
     .then(() => console.log("mongo is connected...."))
     .catch (err => console.log(err)); 
 
-    // express session 
-app.use(
-  session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-  })
-);
+
+//body parser 
+app.use(express.urlencoded({ extended: false })); 
 
 // passport middleware 
 app.use(passport.initialize());
 app.use(passport.session());
+ 
 
-//connect.flash
-app.use(flash()); 
+const usersRoute = require('./routes/users');
 
+// app.use('/users', usersRoute)
+app.use('/users', passport.authenticate('jwt', {session: false}), usersRoute);
 
-// global vars
-app.use((req, res, next) => {
-    res.locals.success_msg = req.flash('success_msg'); 
-    res.locals.error_msg = req.flash('error_msg'); 
-    res.locals.error = req.flash("error"); 
-    next(); 
-})
+const auth = require('./routes/auth');
+app.use('/auth', auth);
 
 
 // Send every request to the React app
@@ -52,9 +48,7 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-const usersRoute = require('./routes/users');
 
-app.use('/users', usersRoute)
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

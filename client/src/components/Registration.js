@@ -2,6 +2,8 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+const register = require("../../controllers/registerController");
+
 function Registration() {
   return (
     <Form>
@@ -25,7 +27,7 @@ function Registration() {
         <Form.Label>Enter Password Again:</Form.Label>
         <Form.Control type="password2" placeholder="Confirm Password" />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" id="registerButton" onClick={() => {register} } type="submit">
         Submit
       </Button>
     </Form>

@@ -20,9 +20,8 @@ if (process.env.NODE_ENV === "production") {
 var db = require("./config/keys").MongoURI; 
 
 //Connect to mongo 
-mongoose.connect(db, { useNewUrlParser: true })
-    .then(() => console.log("mongo is connected...."))
-    .catch (err => console.log(err)); 
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/barbell");
 
 
 //body parser 

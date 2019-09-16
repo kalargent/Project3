@@ -21,7 +21,7 @@ so that the front end can render it
 //   .get(exerciseController.findAll)
 //   .post(exerciseController.create);
 
-router.route("/profile").post((req, res) => {
+router.route("/addnewlift").post((req, res) => {
   console.log(req.user);
   // console.log(req.query)
   var query = {

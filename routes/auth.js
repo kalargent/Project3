@@ -11,6 +11,13 @@ const passport = require("passport");
 const User = require("../models/userModel"); 
 const bcrypt = require("bcryptjs"); 
 
+/*HOME*/
+
+router.route('/').get((req, res) => {
+        User.find()
+        .then(users => res.json(users))
+        .catch(err => res.status(400).json('Error:' + err));
+    })
 
 /* POST AUTH USING PASSPORT. 
 This route uses passport.authenticate to authenticate the user and generate 

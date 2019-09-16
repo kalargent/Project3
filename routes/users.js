@@ -16,9 +16,9 @@ This API should determine the user and return their data (JSON)
 so that the front end can render it 
 */
 
-// router
-//   .route("/dashboard")
-//   .get(exerciseController.findAll)
+router
+  .route("/dashboard")
+  .get(exerciseController.findAll)
 //   .post(exerciseController.create);
 
 router.route("/addnewlift").post((req, res) => {
@@ -35,6 +35,8 @@ router.route("/addnewlift").post((req, res) => {
 //   res.json({ message: "tbd" });
   
 });
+
+
 
 // router.route("/")
 //   .get(booksController.findAll)

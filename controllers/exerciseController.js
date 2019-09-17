@@ -17,9 +17,10 @@ module.exports = {
     db.Lift.create(query)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status().json(err));
-  }
+  }, 
 
   // update
 
   // remove
+  
 };

@@ -1,14 +1,11 @@
 import axios from 'axios';
-const router = require("express").Router();
+// const router = require("express").Router();
 
-// const registerController = require("../../controllers/registerController");
+// // const registerController = require("../../controllers/registerController");
 export default {
    // Posts registered user
-   postRegister: function() {
-     return axios.post("/api/register", {
-         
-      
-   })
+   postRegister: function(newUser) {
+     return axios.post("/api/register", newUser)
 }
  };
 

@@ -21,12 +21,12 @@ module.exports = {
 
   // update
   update: function(req, res) {
-    db.Lift.findById(req.params.id).then(lift => {
-      lift.liftName = req.body.liftName;
-      lift.reps = req.body.reps;
-      lift.pr = req.body.pr;
-      lift.date = Date.parse(req.body.date);
-      lift
+    db.Lift.findById(req.params.id).then(dbModel => {
+      dbModel.liftName = req.body.liftName;
+      dbModel.reps = req.body.reps;
+      dbModel.pr = req.body.pr;
+      dbModel.date = Date.parse(req.body.date);
+      dbModel
         .save()
         .then(() => res.json("Exercise updated."))
         .catch(err => res.status(400).json("Error: " + err));

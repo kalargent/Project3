@@ -45,7 +45,7 @@ UPDATE EXERCISE
 This API updates an existing document in the collection.
 */
 router.route('/update/:id').post((req, res) => {
-  exerciseController.create(req, res);
+  exerciseController.update(req, res);
 })
 /*
 DELETE EXERCISE

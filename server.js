@@ -32,12 +32,13 @@ app.use(passport.initialize());
 app.use(passport.session());
  
 
-const usersRoute = require('./routes/users');
+const usersRoute = require('./routes/api/users');
+const authRoute = require('./routes/api/auth'); 
 
 // app.use('/users', usersRoute)
 app.use('/users', passport.authenticate('jwt', {session: false}), usersRoute);
 
-const auth = require('./routes/auth');
+const auth = require('./routes/api/auth');
 app.use('/auth', auth);
 
 

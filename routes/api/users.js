@@ -5,10 +5,10 @@ These are routes like Get a Profile and a Dashboard that require a JWT to access
 */
 
 const router = require("express").Router();
-let User = require("../models/userModel");
+let User = require("../../models/userModel");
 const passport = require("passport");
 const bcrypt = require("bcrypt");
-const exerciseController = require("../controllers/exerciseController");
+const exerciseController = require("../../controllers/exerciseController");
 
 /*
 GET USER DATA

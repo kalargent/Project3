@@ -5,7 +5,7 @@ import axios from 'axios';
 export default {
    // Posts registered user
    postRegister: function(newUser) {
-     return axios.post("/api/register", newUser)
+     return axios.post("/api/auth/register", newUser)
 }
  };
 

@@ -56,18 +56,20 @@ router.route('/register').post((req, res) => {
     // console.log(req.body); 
     // res.send("hello"); 
 
-    var { name, username, email, password, password2 } = req.body; 
+    console.log(req.body); 
+
+    var { username, email, password } = req.body; 
     var errors = []; 
 
     //check required fields 
-    if (!name || !username || !email || !password || !password2) {
+    if (!username || !email || !password) {
         errors.push({ msg: "Please fill in all fields." }); 
     }
 
     // check for password match 
-    if (password !== password2) {
-        errors.push({ msg: "Passwords do not match." });
-    }
+    // if (password !== password2) {
+    //     errors.push({ msg: "Passwords do not match." });
+    // }
 
     //check pass length 
     // if (password.length < 6) {
@@ -92,7 +94,7 @@ router.route('/register').post((req, res) => {
                     }); 
                 } else {
                     var newUser = new User({
-                        name,
+                    
                         username,  
                         email, 
                         password

@@ -25,17 +25,14 @@ class Registration extends Component {
   register = () => {
     // event.preventDefault();
     console.log("I clicked Register!!");
-    var newUser = {}; 
-    API.postRegister({
-      newUser : {
-        name: this.state.name, 
+    var newUser = {
+      name: this.state.name, 
         username: this.state.username, 
         email: this.state.email,
         password: this.state.password, 
         password2: this.state.password2
-      }
-    } 
-    )
+    }; 
+    API.postRegister(newUser); 
     console.log(newUser)}; 
 
   render() {
@@ -95,7 +92,7 @@ class Registration extends Component {
           variant="primary"
           id="registerButton"
           onClick={this.register}
-          type="submit"
+
         >
           Submit
         </Button>

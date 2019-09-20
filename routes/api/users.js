@@ -5,8 +5,8 @@ These are routes like Get a Profile and a Dashboard that require a JWT to access
 */
 
 const router = require("express").Router();
-let User = require("../models/userModel");
-let Lift = require("../models/liftModel");
+let User = require("../../models/userModel");
+let Lift = require("../../models/liftModel");
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const exerciseController = require("../../controllers/exerciseController");
@@ -44,8 +44,8 @@ router.route("/addnewlift").post((req, res) => {
 UPDATE EXERCISE
 This API updates an existing document in the collection.
 */
-router.route('/update/:id').post((req, res) => {
-  console.log(req)
+router.route('/update/:id').put((req, res) => {
+  // console.log(req)
   exerciseController.update(req, res);
 })
 /*

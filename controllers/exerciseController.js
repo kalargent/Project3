@@ -26,7 +26,7 @@ module.exports = {
       dbModel.liftName = req.body.liftName;
       dbModel.reps = req.body.reps;
       dbModel.pr = req.body.pr;
-      dbModel.date = Date.parse(req.body.date);
+      // dbModel.date = Date.parse(req.body.date);
       dbModel
         .save()
         .then(() => res.json("Exercise updated."))

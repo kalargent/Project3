@@ -21,6 +21,7 @@ module.exports = {
 
   // update
   update: function(req, res) {
+    console.log(req.body)
     db.Lift.findById(req.params.id).then(dbModel => {
       dbModel.liftName = req.body.liftName;
       dbModel.reps = req.body.reps;

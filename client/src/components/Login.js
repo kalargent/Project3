@@ -1,9 +1,11 @@
-import React from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import React, { Component } from "react";
 
-function Login() {
-  return (
+class Login extends Component {
+  
+  render () {
+    return (
     <Form>
       <Form.Group controlId="formGroupUsername">
         <Form.Label>Username</Form.Label>
@@ -16,11 +18,13 @@ function Login() {
       <Button className="m-2" variant="primary" type="submit">
         Submit
       </Button>
-      <Button className="m-2" variant="primary" type="register">
-        Register
-      </Button>
     </Form>
-  );
+    )
+  };
+  
+
 }
+
+
 
 export default Login;

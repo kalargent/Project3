@@ -88,14 +88,7 @@ class Registration extends Component {
             name="password2"
           />
         </Form.Group>
-        <Button
-          variant="primary"
-          id="registerButton"
-          onClick={this.register}
-
-        >
-          Submit
-        </Button>
+        
       </Form>
     );
   }

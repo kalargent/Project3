@@ -1,0 +1,32 @@
+.jumboStyle {
+    background: black;
+}
+.red {
+    color: red;
+}
+
+.bg-gray {
+    background-color: rgb(107, 107, 107);
+}
+
+.bg-dk-gray {
+    background-color: rgb(58, 58, 58);
+}
+
+.bg-white {
+    background-color: rgb(255, 255, 255);
+}
+
+.height100 {
+    height: 100vh;
+    overflow: auto;
+}
+
+body, .hideScroll {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+  }
+
+ ::-webkit-scrollbar {
+    display: none;
+}

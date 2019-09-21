@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import API from "../utils/API";
+// import API from "../utils/API";
 
 
 // const register = require("../../controllers/registerController");
@@ -21,19 +21,6 @@ class Registration extends Component {
       [name]: value
     });
   };
-
-  register = () => {
-    // event.preventDefault();
-    console.log("I clicked Register!!");
-    var newUser = {
-      name: this.state.name, 
-        username: this.state.username, 
-        email: this.state.email,
-        password: this.state.password, 
-        password2: this.state.password2
-    }; 
-    API.postRegister(newUser); 
-    console.log(newUser)}; 
 
   render() {
     return (

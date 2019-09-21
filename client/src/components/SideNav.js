@@ -5,6 +5,8 @@ import Login from "../components/Login";
 import Registration from "../components/Registration";
 import Container from "react-bootstrap/Container";
 import Button from 'react-bootstrap/Button';
+import API from "../utils/API";
+
 
 import "./styles/style.css"
 
@@ -15,6 +17,7 @@ class SideNav extends Component {
       hideLogin: false,
       hideRegister: true
     };
+
   
     this.handleLoginChange = this.handleLoginChange.bind(this);
     this.handleRegisterChange = this.handleRegisterChange.bind(this);
@@ -26,7 +29,7 @@ class SideNav extends Component {
     )
 
     this.registerInstance = (
-      <Button variant="primary" id="registerButton" onClick={this.register, this.handleRegisterChange}>Submit</Button>
+      <Button variant="primary" id="registerButton" onClick={this.handleRegisterChange}>Submit</Button>
   )
   
   }
@@ -39,6 +42,16 @@ class SideNav extends Component {
   handleRegisterChange(event) {
     event.preventDefault();
     this.setState({ hideLogin: false, hideRegister: true });
+    console.log("I clicked Register!!");
+    var newUser = {
+      name: this.state.name, 
+        username: this.state.username, 
+        email: this.state.email,
+        password: this.state.password, 
+        password2: this.state.password2
+    }; 
+    API.postRegister(newUser); 
+    console.log(newUser);
   }
 
   render () {

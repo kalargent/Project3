@@ -9,6 +9,7 @@ export default {
   },
 
   postLogin: function(loginUser) {
+    console.log("i logged in"); 
     return axios.post("/api/auth/login", loginUser);
   }
 };

@@ -42,9 +42,10 @@ router
     jwt.verify(req.token, 'your_jwt_secret', (err) => {
       if (err) {
         //If error send Forbidden (403)
-        console.log("ERROR: Could not connect to the protected route");
+        // console.log("ERROR: Could not connect to the protected route");
         // res.sendStatus(403);
-        res.status(403).json(err); 
+        // res.status(403).json(err); 
+        console.log("ERROR: Could not connect to the protected route");
       } else {
         //If token is successfully verified, we can send the autorized data
         exerciseController.findAll(req, res); 

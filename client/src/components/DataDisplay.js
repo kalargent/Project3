@@ -5,6 +5,7 @@ import Login from "../components/Login";
 import PRModal from "../components/PRModal";
 import Register from "../components/Register";
 import Container from "react-bootstrap/Container";
+import Table from "react-bootstrap/Table";
 import "./styles/style.css";
 
 class DataDisplay extends Component {
@@ -13,14 +14,30 @@ class DataDisplay extends Component {
     return (
       <Container>
         <PRModal/>
-        <Col className="bg-white justify-content-md-center">
-          <Row fluid className="bg-white justify-content-md-center">
-            <h1 className="p-4">Lift Name:  </h1>
-            <h1 className="p-4">Reps: </h1>
-            <h1 className="p-4">PR: </h1>
-            <h1 className="p-4">Date: </h1>
-          </Row>
-        </Col>
+        <Table striped bordered hover variant="dark">
+  <thead>
+    <tr>
+      <th>Lift Name</th>
+      <th>Reps</th>
+      <th>PR</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>props.whatever</td>
+      <td>props.whatever</td>
+      <td>props.whatever</td>
+      <td>@props.whatever</td>
+    </tr>
+    <tr>
+      <td>props.whatever</td>
+      <td>props.whatever</td>
+      <td>props.whatever</td>
+      <td>@props.whatever</td>
+    </tr>
+  </tbody>
+</Table>
       </Container>
     );
   }

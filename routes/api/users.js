@@ -88,22 +88,50 @@ router
 UPDATE EXERCISE
 This API updates an existing document in the collection.
 */
-router.route("/update/:id").put((req, res) => {
-  // console.log(req)
-  exerciseController.update(req, res);
+router
+.route("/update/:id")
+.put(checkToken, (req, res) => {
+  //verify the JWT token generated for the user
+  jwt.verify(req.token, 'your_jwt_secret', (err) => {
+    if (err) {
+      //If error send Forbidden (403)
+      res.sendStatus(403);
+      console.log("ERROR: Could not connect to the protected route to update a exercise.");
+    } else {
+      //If token is successfully verified, we can send the authorized data
+      // Return either basic json or a 401
+      exerciseController.update(req, res);
+      console.log("SUCCESS: Connected to protected route to update a exercise.");
+    }
+  });
 });
 /*
 DELETE EXERCISE
 This API updates an existing document in the collection.
 */
-router.route("/:id").delete((req, res) => {
-  exerciseController.delete(req, res);
+router
+.route("/:id")
+.delete(checkToken, (req, res) => {
+  //verify the JWT token generated for the user
+  jwt.verify(req.token, 'your_jwt_secret', (err) => {
+    if (err) {
+      //If error send Forbidden (403)
+      res.sendStatus(403);
+      console.log("ERROR: Could not connect to the protected route to delete a exercise.");
+    } else {
+      //If token is successfully verified, we can send the authorized data
+      // Return either basic json or a 401
+      exerciseController.delete(req, res);
+      console.log("SUCCESS: Connected to protected route to delete a exercise.");
+    }
+  });
 });
+// router.route("/:id").delete((req, res) => {
+//   exerciseController.delete(req, res);
+// });
 /*
 LOGOUT
 Self-explanatory
 */
-
-
 
 module.exports = router;

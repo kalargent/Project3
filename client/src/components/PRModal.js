@@ -47,7 +47,9 @@ class PRModal extends Component {
 
   render() {
     return (
-      <Modal onSubmit={this.handleSubmit} show={show} onHide={handleClose}>
+      <Modal 
+      onSubmit={this.handleSubmit} show={show} onHide={handleClose}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Add New Lift</Modal.Title>
         </Modal.Header>
@@ -96,8 +98,12 @@ class PRModal extends Component {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" type="submit" onClick={this.handleClose}>Close</Button>
-          <Button variant="primary" onClick={handleClose}>Save changes</Button>
+          <Button variant="secondary" 
+          onClick={this.handleClose}
+          >Close</Button>
+          <Button variant="primary" 
+          onClick={handleClose}
+          >Save changes</Button>
         </Modal.Footer>
       </Modal>
     );

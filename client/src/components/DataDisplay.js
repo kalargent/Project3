@@ -13,7 +13,6 @@ class DataDisplay extends Component {
   render() {
     return (
       <Container>
-        <PRModal/>
         <Table striped bordered hover variant="dark">
   <thead>
     <tr>

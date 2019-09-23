@@ -10,12 +10,6 @@ import "./styles/style.css";
 import API from "../utils/API";
 import Form from 'react-bootstrap/Form';
 
-
-
-const handleClose = () => show(false);
-const show = () => setShow(true);
-const setShow = () => show
-
 class PRModal extends Component {
   state = {
     liftName: "",
@@ -47,7 +41,7 @@ class PRModal extends Component {
 
   render() {
     return (
-      <Modal onSubmit={this.handleSubmit} show={show} onHide={handleClose}>
+      <Modal onSubmit={this.handleSubmit}>
         <Modal.Header closeButton>
           <Modal.Title>Add New Lift</Modal.Title>
         </Modal.Header>
@@ -97,7 +91,7 @@ class PRModal extends Component {
 
         <Modal.Footer>
           <Button variant="secondary" type="submit" onClick={this.handleClose}>Close</Button>
-          <Button variant="primary" onClick={handleClose}>Save changes</Button>
+          <Button variant="primary">Save changes</Button>
         </Modal.Footer>
       </Modal>
     );

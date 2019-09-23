@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
+import PRModal from "../components/PRModal";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Container from "react-bootstrap/Container";
@@ -10,7 +12,8 @@ class SideNav extends Component {
   constructor() {
     super();
     this.state = {
-      showLogin: true
+      showLogin: true,
+      showModal: false
     };
   }
 
@@ -18,10 +21,16 @@ class SideNav extends Component {
     this.setState({ showLogin });
   };
 
+  toggleModal = (showModal = false) => {
+    this.setState({ showModal });
+  };
+
   render() {
     return (
      
       <Row className="justify-content-center">
+        <Col>{this.state.toggleModal} && 
+        <PRModal toggle={this.toggleModal}/></Col>
       <h1 className="red">Welcome Lifter</h1>
       <Container className="mt-4 ">
         <Col>
@@ -51,6 +60,7 @@ class SideNav extends Component {
           </Row>
         </Col>
       </Container>
+      <Button onClick={() => this.toggleModal(true)}>Add a New PR!</Button>
     </Row>
     );
   }

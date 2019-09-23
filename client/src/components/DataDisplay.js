@@ -28,13 +28,13 @@ class DataDisplay extends Component {
       <td>props.whatever</td>
       <td>props.whatever</td>
       <td>props.whatever</td>
-      <td>@props.whatever</td>
+      <td>props.whatever</td>
     </tr>
     <tr>
       <td>props.whatever</td>
       <td>props.whatever</td>
       <td>props.whatever</td>
-      <td>@props.whatever</td>
+      <td>props.whatever</td>
     </tr>
   </tbody>
 </Table>

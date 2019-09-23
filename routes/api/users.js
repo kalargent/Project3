@@ -59,18 +59,29 @@ router
 SAVE EXERCISE
 This API saves a new document to the collection.
 */
-router.route("/addnewlift").post((req, res) => {
-  console.log(req.user);
-  // console.log(req.query)
-  var query = {
-    liftName: req.query.liftName,
-    reps: req.query.reps,
-    pr: req.query.pr
-  };
-  console.log(query);
-  // Return either basic json or a 401
-  exerciseController.create(query, res);
-  //   res.json({ message: "tbd" });
+router
+.route("/addnewlift")
+.post(checkToken, (req, res) => {
+  //verify the JWT token generated for the user
+  jwt.verify(req.token, 'your_jwt_secret', (err) => {
+    if (err) {
+      //If error send Forbidden (403)
+      res.sendStatus(403);
+      console.log("ERROR: Could not connect to the protected route to add a new exercise.");
+    } else {
+      //If token is successfully verified, we can send the authorized data
+      console.log(req.user);
+      var query = {
+        liftName: req.query.liftName,
+        reps: req.query.reps,
+        pr: req.query.pr
+      };
+      console.log(query);
+      // Return either basic json or a 401
+      exerciseController.create(query, res);
+      console.log("SUCCESS: Connected to protected route to add a new exercise.");
+    }
+  });
 });
 
 /*

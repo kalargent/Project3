@@ -18,7 +18,7 @@ function Welcome() {
         <Col
           md={3}
           id="sideContainer"
-          className="bg-dk-gray height100 align-left hideScroll"
+          className="bg-dk-gray heightauto align-left hideScroll"
         >
           <SideNav />
         </Col>

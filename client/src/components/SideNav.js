@@ -30,13 +30,14 @@ class SideNav extends Component {
   render() {
     return (
       <Row className="justify-content-center">
-        <Col>
+        <Col className="justify-content-center">
           {this.state.showModal && (
           <PRModal toggle={this.toggleModal} />
           )}
+                  <h1 className="welcome">Welcome Lifter</h1>
+
         </Col>
 
-        <h1 className="red">Welcome Lifter</h1>
         <Container className="mt-4 ">
           <Col>
             <Row

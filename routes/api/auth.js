@@ -42,7 +42,12 @@ router.post('/login', (req, res) => {
            // generate a signed son web token with the contents of user object and return it in the response
            const token = jwt.sign(user, 'your_jwt_secret');
            console.log(token); 
-           return res.json({user, token});
+           var loggedIn = { 
+               user: user.user, 
+               id: user.id, 
+               token:token
+           }
+           return res.json(loggedIn);
         });
     })(req, res);
 });

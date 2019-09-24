@@ -23,17 +23,18 @@ class SideNav extends Component {
     this.setState({ showLogin });
   };
 
-  toggleModal = (showModal = false) => {
-    this.setState({ showModal: true});
+  onToggleModal = (state) => {
+    this.setState({ showModal: state});
   };
 
   render() {
     return (
       <Row className="justify-content-center">
         <Col>
-          {this.state.showModal && (
-          <PRModal toggle={this.toggleModal} />
-          )}
+          {
+            //this.state.showModal &&
+          <PRModal show={this.state.showModal} onToggle={this.onToggleModal} />
+          }
         </Col>
 
         <h1 className="red">Welcome Lifter</h1>
@@ -61,7 +62,7 @@ class SideNav extends Component {
             </Row>
           </Col>
         </Container>
-        <PRButton type="button" toggle={this.toggleModal}>
+        <PRButton type="button" toggle={this.onToggleModal}>
           Launch modal
         </PRButton>
       </Row>

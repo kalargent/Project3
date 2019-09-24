@@ -10,17 +10,33 @@ import "./styles/style.css";
 import API from "../utils/API";
 import Form from 'react-bootstrap/Form';
 
-const handleClose = () => show(false);
-const show = () => setShow(true);
-const setShow = () => show
+// const handleClose = () => show(false);
+// const show = () => setShow(true);
+// const setShow = () => show
+
+
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
 class PRModal extends Component {
   state = {
     liftName: "",
     reps: "",
     pr: "",
-    date: ""
+    date: "",
+    show: false
   }
+
+  handleClose = () => {
+    // this.props.toggle()
+    // this.setState({
+    //   show: false
+    // }, () => this.props.onToggle(this.state.show)
+    // ) 
+    this.props.onToggle(false)
+  }
+
+  
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -42,11 +58,16 @@ class PRModal extends Component {
     console.log(newLift);    
   }
 
+  static getDerivedStateFromProps = (props, state) => {
+    console.log(props, state)
+    return {show: props.show}
+
+  }
 
   render() {
     return (
       <Modal 
-      onSubmit={this.handleSubmit} show={show} onHide={handleClose}
+      onSubmit={this.handleSubmit} show={this.state.show} onHide={this.handleClose}
       >
         <Modal.Header closeButton>
           <Modal.Title>Add New Lift</Modal.Title>
@@ -100,7 +121,7 @@ class PRModal extends Component {
           onClick={this.handleClose}
           >Close</Button>
           <Button variant="primary" 
-          onClick={handleClose}
+          onClick={this.handleClose}
           >Save changes</Button>
         </Modal.Footer>
       </Modal>

@@ -23,7 +23,7 @@ router.route('/').get((req, res) => {
 This route uses passport.authenticate to authenticate the user and generate 
 a JWT that will be used on protected routes. 
 */
-router.post('/login', function (req, res) {
+router.post('/login', (req, res) => {
     // console.log("login before auth is called"); 
     passport.authenticate('local', {session: false}, (err, user) => {
         // console.log("inside auth")

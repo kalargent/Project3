@@ -24,6 +24,7 @@ const checkToken = (req, res, next) => {
       next();
   } else {
       //If header is undefined return Forbidden (403)
+      console.log("ERROR: Could not connect to the protected route.")
       res.sendStatus(403)
   }
 } 

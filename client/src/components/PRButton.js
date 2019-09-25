@@ -8,7 +8,7 @@ class PRButton extends Component {
   render () {
     return (
 
-        <Button className="m-2" variant="primary" onClick={() => this.props.toggle(true)}>
+        <Button className="m-2" variant="danger" id="button" onClick={() => this.props.toggle(true)}>
           Add a New PR!
         </Button>
     )

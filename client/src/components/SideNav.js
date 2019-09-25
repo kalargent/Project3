@@ -11,14 +11,14 @@ import PRModal from "../components/PRModal";
 import "./styles/style.css";
 
 class SideNav extends Component {
+  constructor() {
+    super();
     this.state = {
       showLogin: true,
       showModal: false
     };
   }
 
-  constructor() {
-    super();
   toggleLoginRegister = (showLogin = true) => {
     this.setState({ showLogin });
   };

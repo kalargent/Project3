@@ -15,8 +15,9 @@ class Login extends Component {
     var loginUser = {
       username: this.state.username,
       password: this.state.password,
-    };
+    }; 
     API.postLogin(loginUser);
+    // JSON.parse(loginUser); 
     console.log(loginUser);
   }
 

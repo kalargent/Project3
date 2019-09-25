@@ -9,8 +9,20 @@ export default {
   },
 
   postLogin: function(loginUser) {
+    JSON.stringify(loginUser); 
     console.log("i logged in"); 
-    return axios.post("/api/auth/login", loginUser);
+    axios.post("/api/auth/login", loginUser)
+    .then (function (loggedIn) {
+      // JSON.stringify(loginUser); 
+      console.log(loggedIn); 
+      var user = {
+        user: loggedIn.data.user.id, 
+        token: loggedIn.data.token
+      }
+      console.log(user); 
+      localStorage.setItem("user", JSON.stringify(user)); 
+    })
+    
   }
 };
 

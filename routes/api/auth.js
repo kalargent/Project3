@@ -23,7 +23,7 @@ router.route('/').get((req, res) => {
 This route uses passport.authenticate to authenticate the user and generate 
 a JWT that will be used on protected routes. 
 */
-router.post('/login', function (req, res) {
+router.post('/login', (req, res) => {
     // console.log("login before auth is called"); 
     passport.authenticate('local', {session: false}, (err, user) => {
         // console.log("inside auth")
@@ -42,7 +42,12 @@ router.post('/login', function (req, res) {
            // generate a signed son web token with the contents of user object and return it in the response
            const token = jwt.sign(user, 'your_jwt_secret');
            console.log(token); 
-           return res.json({user, token});
+           var loggedIn = { 
+               user: user.user, 
+               id: user.id, 
+               token:token
+           }
+           return res.json(loggedIn);
         });
     })(req, res);
 });

@@ -11,14 +11,14 @@ import PRModal from "../components/PRModal";
 import "./styles/style.css";
 
 class SideNav extends Component {
-  constructor() {
-    super();
     this.state = {
       showLogin: true,
       showModal: false
     };
   }
 
+  constructor() {
+    super();
   toggleLoginRegister = (showLogin = true) => {
     this.setState({ showLogin });
   };
@@ -30,11 +30,13 @@ class SideNav extends Component {
   render() {
     return (
       <Row className="justify-content-center">
+
         <Col>
           {
             //this.state.showModal &&
           <PRModal show={this.state.showModal} onToggle={this.onToggleModal} />
           }
+        
         </Col>
 
         <Container className="mt-4 ">

@@ -53,11 +53,11 @@ class Login extends Component {
           />
         </Form.Group>
 
-        <Button className="m-2" variant="primary" type="submit">
+        <Button className="m-2" variant="danger" id="button" type="submit">
           Submit
         </Button>
 
-        <Button className="m-2" variant="primary" onClick={() => this.props.toggle(false)}>
+        <Button className="m-2" variant="danger" id="button" onClick={() => this.props.toggle(false)}>
           Register
         </Button>
       </Form>

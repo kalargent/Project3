@@ -87,10 +87,10 @@ class Login extends Component {
           name="password2"
         />
       </Form.Group>
-      <Button className="m-2" variant="primary" type="submit">
+      <Button className="m-2" variant="danger" id="button" type="submit">
     Register
     </Button>
-      <Button className="m-2" variant="primary" onClick={this.props.toggle}>
+      <Button className="m-2" variant="danger" id="button" onClick={this.props.toggle}>
     Login
     </Button>
     </Form>

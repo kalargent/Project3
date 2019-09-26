@@ -7,7 +7,7 @@ class Login extends Component {
   state = {
     username: "",
     password: "",
-    loggedIn: false
+    // loggedIn: false
   };
 
   handleSubmit = event => {
@@ -17,7 +17,9 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password
     };
-    API.postLogin(loginUser);
+    API.postLogin(loginUser).then(()=>{
+      this.props.changeLoginState(true);
+    });
     // JSON.parse(loginUser);
     console.log(loginUser);
   };
@@ -74,7 +76,7 @@ class Login extends Component {
           variant="danger"
           id="button"
           // onClick={}
-          onClick={this.changeLoginState}
+          // onClick={this.changeLoginState}
           type="submit"
         >
           Submit

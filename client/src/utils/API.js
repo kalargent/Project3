@@ -12,7 +12,7 @@ export default {
   postLogin: function(loginUser) {
     JSON.stringify(loginUser); 
     console.log("i logged in"); 
-    axios.post("/api/auth/login", loginUser)
+    return axios.post("/api/auth/login", loginUser)
     .then (function (loggedIn) {
       // JSON.stringify(loginUser); 
       console.log(loggedIn); 

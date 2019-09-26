@@ -31,6 +31,11 @@ var UserSchema = new Schema({
   userCreated: {
     type: Date,
     default: Date.now
+  }, 
+
+  lift: { 
+    type: Schema.Types.ObjectId, 
+    ref: "Lift"
   }
 });
 

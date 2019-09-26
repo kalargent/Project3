@@ -19,15 +19,17 @@ var LiftSchema = new Schema({
     required: false 
   },
   
-  // userID: {
-  //   type: String, 
-  //   required: true
-  // }, 
+  userID: {
+    type: String, 
+    required: true
+  }, 
 
   date: {
     type: Date,
     default: Date.now
   }
+
+
 });
 
 var Lift = mongoose.model("Lift", LiftSchema);

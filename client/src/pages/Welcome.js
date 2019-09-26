@@ -20,6 +20,14 @@ changeLoginState = (loginHandle) => {
     console.log("login state: " + this.state.loginHandle)
 }
 
+// LoggedIn = (props) => {
+//   const isLoggedIn =props.isLoggedIn;
+//   if(isLoggedIn) {
+//     return <DataDisplay changeLoginState={this.state.loginHandle}/>
+//   }
+//   return <h1>Wrong Username/Password combination</h1>
+// }
+
   render() {
     return (
       // When page loads login should display and registration should be hidden
@@ -40,6 +48,7 @@ changeLoginState = (loginHandle) => {
             id="mainContainer"
             className="height100 text-center m-3 pl-md-0 justify-content-md-center"
           >
+            {/* <LoggedIn isLoggedIn={false}/> */}
             {this.state.loginHandle && (<DataDisplay changeLoginState={this.state.loginHandle}/>)}
           </Col>
         </Row>

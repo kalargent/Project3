@@ -9,14 +9,29 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  // findOneAndUpdate: function (req, res) { 
+  //   db.Users.findById 
+  // }, 
+
   // create
   create: function(query, res) {
     console.log("-------");
-    console.log(query);
+    console.log("line 19 ", query);
     console.log("-------");
     db.Lift.create(query)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status().json(err));
+      .then (function(query) { 
+        console.log("in then statement", query); 
+        return db.Users.findOneAndUpdate( { id: query.userId }, { lift: query._id }, { new: true } );
+      })
+      .then(dbModel => res.json(dbModel)) 
+      .then (function (dbUser) {
+        res.json(dbUser);  
+      })
+      .catch (function(err) { 
+        res.json(err); 
+      })
+      // .then db.Users.findOneAndUpdate ( {_id: reqs.params} )
+      // .catch(err => res.status().json(err));
   },
 
   // update

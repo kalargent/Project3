@@ -24,6 +24,16 @@ export default {
       localStorage.setItem("user", JSON.stringify(user)); 
     })
     
+  },
+
+  postLiftModel: function(newLift) {
+    let authUser = localStorage.getItem("user")
+    let token = authUser.token
+    console.log("Post Lift");
+    return axios.post("/api/users/addnewlift", token, newLift);
   }
+
+
+
 };
 

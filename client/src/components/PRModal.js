@@ -23,7 +23,6 @@ class PRModal extends Component {
     liftName: "",
     reps: "",
     pr: "",
-    date: "",
     show: false
   }
 
@@ -52,9 +51,8 @@ class PRModal extends Component {
       liftName: this.state.liftName,
       reps: this.state.reps,
       pr: this.state.pr,
-      date: this.state.date
       };
-    API.postliftModel(newLift);
+    API.postLiftModel(newLift)
     console.log(newLift);    
   }
 
@@ -79,9 +77,9 @@ class PRModal extends Component {
         <Form.Control
           type="name"
           placeholder="Enter Lift"
-          value={this.state.liftName}
+          defaultValue={this.state.liftName}
           onChange={this.handleInputChange}
-          name="Lift Name"
+          name="liftName"
         />
       </Form.Group>
       <Form.Group controlId="formGroupReps">
@@ -89,7 +87,7 @@ class PRModal extends Component {
         <Form.Control
           type="reps"
           placeholder="Enter Reps"
-          value={this.state.reps}
+          defaultValue={this.state.reps}
           onChange={this.handleInputChange}
           name="reps"
         />
@@ -99,19 +97,9 @@ class PRModal extends Component {
         <Form.Control
           type="record"
           placeholder="Enter PR"
-          value={this.state.pr}
+          defaultValue={this.state.pr}
           onChange={this.handleInputChange}
           name="pr"
-        />
-      </Form.Group>
-      <Form.Group controlId="formGroupDate">
-        <Form.Label>Date:</Form.Label>
-        <Form.Control
-          type="date"
-          placeholder="Enter Date"
-          value={this.state.date}
-          onChange={this.handleInputChange}
-          name="date"
         />
       </Form.Group>
         </Modal.Body>
@@ -120,8 +108,9 @@ class PRModal extends Component {
           <Button variant="secondary" 
           onClick={this.handleClose}
           >Close</Button>
-          <Button variant="primary" 
-          onClick={this.handleClose}
+          <Button variant="primary" type="submit" 
+          onClick={this.handleClose, this.handleSubmit}
+          // onSubmit={this.handleSubmit}
           >Save changes</Button>
         </Modal.Footer>
       </Modal>

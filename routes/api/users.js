@@ -48,7 +48,7 @@ router
         // res.status(403).json(err); 
         console.log("ERROR: Could not connect to the protected route.");
       } else {
-        //If token is successfully verified, we can send the autorized data
+        //If token is successfully verified, we can send the authorized data
         exerciseController.findAll(req, res); 
         console.log("SUCCESS: Connected to protected route.");
       }

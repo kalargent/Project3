@@ -15,7 +15,8 @@ class SideNav extends Component {
     super();
     this.state = {
       showLogin: true,
-      showModal: false
+      showModal: false,
+      showTable: false
     };
   }
 
@@ -47,7 +48,7 @@ class SideNav extends Component {
             >
               <Col>
                 {this.state.showLogin && (
-                  <Login toggle={this.toggleLoginRegister} />
+                  <Login toggle={this.toggleLoginRegister} changeLoginState={this.props.changeLoginState} />
                 )}
               </Col>
             </Row>

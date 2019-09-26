@@ -3,6 +3,7 @@ import axios from "axios";
 
 // // const registerController = require("../../controllers/registerController");
 export default {
+  
   // Posts registered user
   postRegister: function(newUser) {
     return axios.post("/api/auth/register", newUser);

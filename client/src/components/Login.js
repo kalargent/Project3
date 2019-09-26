@@ -28,6 +28,11 @@ class Login extends Component {
     });
   };
 
+  changeLoginState = () => {
+    this.props.changeLoginState(true);
+  }
+
+
   render () {
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -53,7 +58,7 @@ class Login extends Component {
           />
         </Form.Group>
 
-        <Button className="m-2" variant="danger" id="button" type="submit">
+        <Button className="m-2" variant="danger" id="button" onClick={this.changeLoginState} type="submit">
           Submit
         </Button>
 

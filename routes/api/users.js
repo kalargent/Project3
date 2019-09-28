@@ -48,7 +48,7 @@ router
         // res.status(403).json(err); 
         console.log("ERROR: Could not connect to the protected route.");
       } else {
-        //If token is successfully verified, we can send the autorized data
+        //If token is successfully verified, we can send the authorized data
         exerciseController.findAll(req, res); 
         console.log("SUCCESS: Connected to protected route.");
       }
@@ -71,15 +71,25 @@ router
       console.log("ERROR: Could not connect to the protected route to add a new exercise.");
     } else {
       //If token is successfully verified, we can send the authorized data
-      console.log(req.user);
+      // console.log(req.user);
       var query = {
         liftName: req.query.liftName,
         reps: req.query.reps,
-        pr: req.query.pr
+        pr: req.query.pr, 
+        userID: req.query.userID
       };
-      console.log(query);
+      console.log("line 81 ",  query);
       // Return either basic json or a 401
-      exerciseController.create(query, res);
+      exerciseController.create(query, res)
+        // .then (function(dbLift) { 
+        //   return db.Users.findOneAndUpdate( { _id: req.params.userId }, { lift: dbLift._id }, { new: true } );
+        // }) 
+        // .then (function (dbUser) {
+        //   res.json(dbUser);  
+        // })
+        // .catch (function(err) { 
+        //   res.json(err); 
+        // })
       console.log("SUCCESS: Connected to protected route to add a new exercise.");
     }
   });

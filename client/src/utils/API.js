@@ -3,6 +3,7 @@ import axios from "axios";
 
 // // const registerController = require("../../controllers/registerController");
 export default {
+  
   // Posts registered user
   postRegister: function(newUser) {
     return axios.post("/api/auth/register", newUser);
@@ -11,7 +12,7 @@ export default {
   postLogin: function(loginUser) {
     JSON.stringify(loginUser); 
     console.log("i logged in"); 
-    axios.post("/api/auth/login", loginUser)
+    return axios.post("/api/auth/login", loginUser)
     .then (function (loggedIn) {
       // JSON.stringify(loginUser); 
       console.log(loggedIn); 
@@ -23,6 +24,16 @@ export default {
       localStorage.setItem("user", JSON.stringify(user)); 
     })
     
+  },
+
+  postLiftModel: function(newLift) {
+    let authUser = localStorage.getItem("user")
+    let token = authUser.token
+    console.log("Post Lift");
+    return axios.post("/api/users/addnewlift", token, newLift);
   }
+
+
+
 };
 

@@ -1,25 +1,28 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import React, { Component } from "react";
 import API from "../utils/API";
 
 class Login extends Component {
   state = {
     username: "",
-    password: ""
-  }
+    password: "",
+    // loggedIn: false
+  };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     // const token = serverResult;
     event.preventDefault();
     var loginUser = {
       username: this.state.username,
-      password: this.state.password,
-    }; 
-    API.postLogin(loginUser);
-    // JSON.parse(loginUser); 
+      password: this.state.password
+    };
+    API.postLogin(loginUser).then(()=>{
+      this.props.changeLoginState(true);
+    });
+    // JSON.parse(loginUser);
     console.log(loginUser);
-  }
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -28,7 +31,22 @@ class Login extends Component {
     });
   };
 
-  render () {
+  // componentDidMount() {
+  //   this.changeLoginState();
+  // };
+
+  changeLoginState = () => {
+    let token = localStorage.getItem("user");
+    console.log("Token obtained:" + localStorage.getItem("user"));
+    if(token) {
+      this.props.changeLoginState(true);
+    } else {
+      console.log("username/password combo incorrect");
+      this.props.changeLoginState(false);
+    }
+  };
+
+  render() {
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Group controlId="formGroupUsername">
@@ -53,20 +71,28 @@ class Login extends Component {
           />
         </Form.Group>
 
-        <Button className="m-2" variant="danger" id="button" type="submit">
+        <Button
+          className="m-2"
+          variant="danger"
+          id="button"
+          // onClick={}
+          // onClick={this.changeLoginState}
+          type="submit"
+        >
           Submit
         </Button>
 
-        <Button className="m-2" variant="danger" id="button" onClick={() => this.props.toggle(false)}>
+        <Button
+          className="m-2"
+          variant="danger"
+          id="button"
+          onClick={() => this.props.toggle(false)}
+        >
           Register
         </Button>
       </Form>
-    )
-  };
-  
-
+    );
+  }
 }
-
-
 
 export default Login;

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import PRButton from "../components/PRButton";
 import Login from "../components/Login";
@@ -15,13 +14,21 @@ class SideNav extends Component {
     super();
     this.state = {
       showLogin: true,
+      showRegister: false,
       showModal: false,
-      showTable: false
+      showTable: false,
+      hideLogin: false
     };
   }
 
-  toggleLoginRegister = (showLogin = true) => {
+  toggleLogin = (showLogin = true) => {
     this.setState({ showLogin });
+    console.log("showLogin state: "+this.state.showLogin)
+  };
+
+  toggleRegister = (showRegister = false) => {
+    this.setState({ showRegister });
+    console.log("showLogin state: "+this.state.showRegister)
   };
 
   onToggleModal = (state) => {
@@ -43,22 +50,22 @@ class SideNav extends Component {
         <Container className="mt-4 ">
           <Col>
             <Row
-              className="justify-content-md-center bg-white"
+              className="justify-content-md-center text-white"
               // style={logStyle}
             >
-              <Col>
+              <Col >
                 {this.state.showLogin && (
-                  <Login toggle={this.toggleLoginRegister} changeLoginState={this.props.changeLoginState} />
+                  <Login toggleLogin={this.toggleLogin} toggleRegister={this.toggleRegister} changeLoginState={this.props.changeLoginState} />
                 )}
               </Col>
             </Row>
             <Row
-              className="justify-content-md-center bg-white"
+              className="justify-content-md-center text-white"
               // style={regStyle}
             >
               <Col className="pb-2">
-                {!this.state.showLogin && (
-                  <Register toggle={this.toggleLoginRegister} />
+                {this.state.showRegister && (
+                  <Register toggleLogin={this.toggleLogin} toggleRegister={this.toggleRegister}/>
                 )}
               </Col>
             </Row>

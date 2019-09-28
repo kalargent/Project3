@@ -34,6 +34,12 @@ class Login extends Component {
     console.log(newUser);    
   }
 
+  hideRegisterShowLogin = () => {
+    this.props.toggleRegister(false);
+    this.props.toggleLogin(true);
+
+  }
+
   render () {
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -90,7 +96,7 @@ class Login extends Component {
       <Button className="m-2" variant="danger" id="button" type="submit">
     Register
     </Button>
-      <Button className="m-2" variant="danger" id="button" onClick={this.props.toggle}>
+      <Button className="m-2" variant="danger" id="button" onClick={this.hideRegisterShowLogin}>
     Login
     </Button>
     </Form>

@@ -28,9 +28,18 @@ export default {
 
   postLiftModel: function(newLift) {
     let authUser = localStorage.getItem("user")
+    authUser = JSON.parse(authUser); 
     let token = authUser.token
+    console.log(token); 
+  
     console.log("Post Lift");
-    return axios.post("/api/users/addnewlift", token, newLift);
+    return axios.post("/api/users/addnewlift",  newLift, 
+    {
+      headers: {
+        "Authorization": "Bearer " + token
+      }, 
+      
+    });
   }
 
 

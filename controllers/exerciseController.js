@@ -21,12 +21,12 @@ module.exports = {
     db.Lift.create(query)
       .then (function(query) { 
         console.log("in then statement", query); 
-        return db.Users.findOneAndUpdate( { id: query.userId }, { lift: query._id }, { new: true } );
+        // return db.Users.findOneAndUpdate( { id: query.userID }, { lift: query._id }, { new: true } );
       })
       .then(dbModel => res.json(dbModel)) 
-      .then (function (dbUser) {
-        res.json(dbUser);  
-      })
+      // .then (function (dbUser) {
+        // res.json(dbUser);  
+      // })
       .catch (function(err) { 
         res.json(err); 
       })

@@ -73,3 +73,7 @@ th {
 .text-white {
     color: white;
 }
+
+.logo-small {
+    max-width: 12rem;
+}

@@ -21,6 +21,7 @@ const checkToken = (req, res, next) => {
       const token = bearer[1];
 
       req.token = token;
+      req.user = req.headers.UserID
       next();
   } else {
       //If header is undefined return Forbidden (403)

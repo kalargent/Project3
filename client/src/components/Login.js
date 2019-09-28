@@ -21,7 +21,9 @@ class Login extends Component {
       this.props.changeLoginState(true);
       this.props.toggleLogin(false);
       this.props.togglePRButton(true);
+    // API.getfindAll ().then(()=>{
 
+    // })
     });
     // JSON.parse(loginUser);
     console.log(loginUser);

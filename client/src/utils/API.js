@@ -46,8 +46,8 @@ export default {
 
     return axios.get("/api/users/dashboard", findByUserID, {
       headers: {
-        Authorization: "Bearer " + token
-        
+        Authorization: "Bearer " + token, 
+        UserID: findByUserID
       }
     });
   }

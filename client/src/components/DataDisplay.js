@@ -5,6 +5,17 @@ import "./styles/style.css";
 
 class DataDisplay extends Component {
 
+  // handleLoad = event => {
+  //   // const token = serverResult;
+  //   event.preventDefault();
+  //   API.getfindAll ().then(()=>{
+
+  //   })
+  //   });
+  //   // JSON.parse(loginUser);
+  //   console.log(loginUser);
+  // };
+
   render() {
     return (
       <Container>

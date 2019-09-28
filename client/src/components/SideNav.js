@@ -17,7 +17,8 @@ class SideNav extends Component {
       showRegister: false,
       showModal: false,
       showTable: false,
-      hideLogin: false
+      hideLogin: false,
+      showPRButton: false
     };
   }
 
@@ -34,6 +35,10 @@ class SideNav extends Component {
   onToggleModal = (state) => {
     this.setState({ showModal: state});
   };
+
+  togglePRButton = (showPRButton = false) => {
+    this.setState({showPRButton});
+  }
 
   render() {
     return (
@@ -55,7 +60,7 @@ class SideNav extends Component {
             >
               <Col >
                 {this.state.showLogin && (
-                  <Login toggleLogin={this.toggleLogin} toggleRegister={this.toggleRegister} changeLoginState={this.props.changeLoginState} />
+                  <Login toggleLogin={this.toggleLogin} toggleRegister={this.toggleRegister} togglePRButton={this.togglePRButton} changeLoginState={this.props.changeLoginState} />
                 )}
               </Col>
             </Row>
@@ -71,9 +76,9 @@ class SideNav extends Component {
             </Row>
           </Col>
         </Container>
-        <PRButton type="button" toggle={this.onToggleModal}>
-          Launch modal
-        </PRButton>
+        {this.state.showPRButton && (
+        <PRButton type="button" toggle={this.onToggleModal}/>
+        )}
       </Row>
     );
   }

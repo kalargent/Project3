@@ -7,7 +7,7 @@ const passport = require("passport");
 const router = express.Router(); 
 
 router.use("/auth", auth);
-router.use("/users", passport.authenticate("jwt", { session: false }), usersRoute);
+router.use("/users", passport.authenticate("jwt", { session: false }), users);
 
 const apiRoutes = express.Router(); 
 

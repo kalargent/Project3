@@ -69,3 +69,7 @@ th {
 .form-label, #button {
     font-family: 'Stardos Stencil', cursive;
 }
+
+.text-white {
+    color: white;
+}

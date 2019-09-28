@@ -19,6 +19,9 @@ class Login extends Component {
     };
     API.postLogin(loginUser).then(()=>{
       this.props.changeLoginState(true);
+      this.props.toggleLogin(false);
+      this.props.togglePRButton(true);
+
     });
     // JSON.parse(loginUser);
     console.log(loginUser);
@@ -45,6 +48,12 @@ class Login extends Component {
       this.props.changeLoginState(false);
     }
   };
+
+  hideLoginShowRegister = () => {
+    this.props.toggleRegister(true);
+    this.props.toggleLogin(false);
+
+  }
 
   render() {
     return (
@@ -75,8 +84,6 @@ class Login extends Component {
           className="m-2"
           variant="danger"
           id="button"
-          // onClick={}
-          // onClick={this.changeLoginState}
           type="submit"
         >
           Submit
@@ -86,7 +93,7 @@ class Login extends Component {
           className="m-2"
           variant="danger"
           id="button"
-          onClick={() => this.props.toggle(false)}
+          onClick={this.hideLoginShowRegister}
         >
           Register
         </Button>

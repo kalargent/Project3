@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Login from "../components/Login";
-import Register from "../components/Register";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import "./styles/style.css";

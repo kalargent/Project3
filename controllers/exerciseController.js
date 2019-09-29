@@ -3,7 +3,8 @@ const db = require("../models");
 module.exports = {
   // find all
   findAll: function(req, res) {
-    db.Lift.find(req.query)
+    console.log(req.user);  
+    db.Lift.find( {"userID": req.user})
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -21,12 +22,12 @@ module.exports = {
     db.Lift.create(query)
       .then (function(query) { 
         console.log("in then statement", query); 
-        return db.Users.findOneAndUpdate( { id: query.userId }, { lift: query._id }, { new: true } );
+        // return db.Users.findOneAndUpdate( { id: query.userID }, { lift: query._id }, { new: true } );
       })
       .then(dbModel => res.json(dbModel)) 
-      .then (function (dbUser) {
-        res.json(dbUser);  
-      })
+      // .then (function (dbUser) {
+        // res.json(dbUser);  
+      // })
       .catch (function(err) { 
         res.json(err); 
       })

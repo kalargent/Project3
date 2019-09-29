@@ -58,18 +58,33 @@ module.exports = function(passport) {
       },
       function(jwtPayload, cb) {
         //find the user in db if needed. This functionality may be omitted if you store everything you'll need in JWT payload.
-        return cb(null, jwtPayload);
+        // console.log("payload ", jwtPayload); 
+        return User.findById(jwtPayload.id)
+        .then (user => {
+          // console.log(user); 
+          if (user) {
+            return cb(null, user); 
+          }
+          else {
+            return cb(null, false); 
+          }
+        }) 
+       .catch (err => {
+         return cb(err, false)
+       })
       }
     )
   );
 
-  // passport.serializeUser((user, done) => {
-  //   done(null, user.id);
-  // });
+  passport.serializeUser((user, done) => {
+    console.log("user is ", user); 
+    done(null, user.id);
+  });
 
-  // passport.deserializeUser((id, done) => {
-  //   User.findById(id, (err, user) => {
-  //     done(err, user);
-  //   });
-  // });
+  passport.deserializeUser((id, done) => {
+    console.log("id is ", id); 
+    User.findById(id, (err, user) => {
+      done(err, user);
+    });
+  });
 };

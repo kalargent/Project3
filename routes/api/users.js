@@ -21,7 +21,8 @@ const checkToken = (req, res, next) => {
       const token = bearer[1];
 
       req.token = token;
-      req.user = req.headers.UserID
+      req.user = req.headers.userid
+      console.log(req.headers.userid);
       next();
   } else {
       //If header is undefined return Forbidden (403)
@@ -78,7 +79,7 @@ router
         liftName: req.body.liftName,
         reps: req.body.reps,
         pr: req.body.pr, 
-        userID: req.user.id
+        userID: req.user
       };
       console.log("line 81 ",  query);
       // Return either basic json or a 401

@@ -4,6 +4,7 @@ import Table from "react-bootstrap/Table";
 import "./styles/style.css";
 // import { Link } from 'react-router-dom';
 import axios from 'axios';
+import API from "../utils/API";
 
 // class DataDisplay extends Component {
 
@@ -67,15 +68,29 @@ export default class DataDisplay extends Component {
       super(props);
       this.state = {lifts: []};
   }
-  componentDidMount() {
-      axios.get('http://localhost:3001/dashboard/')
-          .then(response => {
+  // componentDidMount() {
+  //     axios.get('/api/users/dashboard/')
+  //         .then(response => {
+  //             this.setState({ lifts: response.data });
+  //             console.log(this.state.lifts);
+  //         })
+  //         .catch(function (error){
+  //             console.log(error);
+  //         })
+  // }
+
+  componentDidUpdate() { 
+    API.getfindAll()
+              .then(response => {
               this.setState({ lifts: response.data });
+              console.log(this.state.lifts);
           })
           .catch(function (error){
               console.log(error);
           })
+
   }
+
   liftList() {
       return this.state.lifts.map(function(currentLift, i){
           return <Lifts lift={currentLift} key={i} />;

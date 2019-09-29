@@ -42,6 +42,8 @@ export default {
 
   getfindAll: function() {
     let findByUser = localStorage.getItem("user");
+    console.log("find by user", findByUser);
+
     findByUser = JSON.parse(findByUser);
     let token = findByUser.token;
     let findByUserID = findByUser.user;

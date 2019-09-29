@@ -78,12 +78,15 @@ export default class DataDisplay extends Component {
   //             console.log(error);
   //         })
   // }
-
-  componentDidUpdate() { 
+// componentDidMount() {
+//   console.log("I mounted your component!!!");
+// }
+  componentDidMount() { 
     API.getfindAll()
               .then(response => {
+                console.log("response is: ", response);
               this.setState({ lifts: response.data });
-              console.log(this.state.lifts);
+              // console.log(this.state.lifts);
           })
           .catch(function (error){
               console.log(error);

@@ -6,58 +6,12 @@ import "./styles/style.css";
 import axios from 'axios';
 import API from "../utils/API";
 
-// class DataDisplay extends Component {
-
-  // handleLoad = event => {
-  //   // const token = serverResult;
-  //   event.preventDefault();
-  //   API.getfindAll ().then(()=>{
-
-  //   })
-  //   });
-  //   // JSON.parse(loginUser);
-  //   console.log(loginUser);
-  // };
-
-//   render() {
-//     return (
-//       <Container>
-//         <Table striped bordered hover variant="dark">
-//           <thead>
-//             <tr>
-//               <th>Lift Name</th>
-//               <th>Reps</th>
-//               <th>PR</th>
-//               <th>Date</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             <tr>
-//               <td>props.whatever</td>
-//               <td>props.whatever</td>
-//               <td>props.whatever</td>
-//               <td>props.whatever</td>
-//             </tr>
-//             <tr>
-//               <td>props.whatever</td>
-//               <td>props.whatever</td>
-//               <td>props.whatever</td>
-//               <td>props.whatever</td>
-//             </tr>
-//           </tbody>
-//         </Table>
-//       </Container>
-//     );
-//   }
-// }
-
-
 const Lifts = props => (
   <tr>
-      <td>{props.lifts.lifts_liftName}</td>
-      <td>{props.lifts.lifts_reps}</td>
-      <td>{props.lifts.lifts_pr}</td>
-      <td>{props.lifts.lifts_date}</td>
+      <td>{props.lifts.liftName}</td>
+      <td>{props.lifts.reps}</td>
+      <td>{props.lifts.pr}</td>
+      <td>{props.lifts.date}</td>
       <td>
           {/* <Link to={"/edit/"+props.lifts._id}>Edit</Link> */}
       </td>
@@ -68,25 +22,14 @@ export default class DataDisplay extends Component {
       super(props);
       this.state = {lifts: []};
   }
-  // componentDidMount() {
-  //     axios.get('/api/users/dashboard/')
-  //         .then(response => {
-  //             this.setState({ lifts: response.data });
-  //             console.log(this.state.lifts);
-  //         })
-  //         .catch(function (error){
-  //             console.log(error);
-  //         })
-  // }
-// componentDidMount() {
-//   console.log("I mounted your component!!!");
-// }
+  
   componentDidMount() { 
     API.getfindAll()
               .then(response => {
                 console.log("response is: ", response);
               this.setState({ lifts: response.data });
-              // console.log(this.state.lifts);
+              console.log("#####")
+              console.log(this.state.lifts);
           })
           .catch(function (error){
               console.log(error);
@@ -96,13 +39,12 @@ export default class DataDisplay extends Component {
 
   liftList() {
       return this.state.lifts.map(function(currentLift, i){
-          return <Lifts lift={currentLift} key={i} />;
+          return <Lifts lifts={currentLift} key={i} />;
       })
   }
   render() {
       return (
           <div>
-              {/* <h3>Lifts List</h3> */}
               <Table striped bordered hover variant="dark">
                   <thead>
                       <tr>
@@ -123,4 +65,3 @@ export default class DataDisplay extends Component {
   }
 }
 
-// export default DataDisplay;

@@ -6,6 +6,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import Container from "react-bootstrap/Container";
 import PRModal from "../components/PRModal";
+import LogoutButton from "../components/LogoutButton";
 
 import "./styles/style.css";
 
@@ -18,38 +19,44 @@ class SideNav extends Component {
       showModal: false,
       showTable: false,
       hideLogin: false,
-      showPRButton: false
+      showPRButton: false,
+      showLogoutButton: false
     };
   }
 
   toggleLogin = (showLogin = true) => {
     this.setState({ showLogin });
-    console.log("showLogin state: "+this.state.showLogin)
+    console.log("showLogin state: " + this.state.showLogin);
   };
 
   toggleRegister = (showRegister = false) => {
     this.setState({ showRegister });
-    console.log("showLogin state: "+this.state.showRegister)
+    console.log("showLogin state: " + this.state.showRegister);
   };
 
-  onToggleModal = (state) => {
-    this.setState({ showModal: state});
+  onToggleModal = state => {
+    this.setState({ showModal: state });
   };
 
   togglePRButton = (showPRButton = false) => {
-    this.setState({showPRButton});
-  }
+    this.setState({ showPRButton });
+  };
+
+  toggleLogoutButton = (showLogoutButton = false) => {
+    this.setState({ showLogoutButton });
+  };
 
   render() {
     return (
       <Row className="justify-content-center">
-
         <Col>
           {
             //this.state.showModal &&
-          <PRModal show={this.state.showModal} onToggle={this.onToggleModal} />
+            <PRModal
+              show={this.state.showModal}
+              onToggle={this.onToggleModal}
+            />
           }
-        
         </Col>
 
         <Container className="mt-4 ">
@@ -58,9 +65,15 @@ class SideNav extends Component {
               className="justify-content-md-center text-white"
               // style={logStyle}
             >
-              <Col >
+              <Col>
                 {this.state.showLogin && (
-                  <Login toggleLogin={this.toggleLogin} toggleRegister={this.toggleRegister} togglePRButton={this.togglePRButton} changeLoginState={this.props.changeLoginState} />
+                  <Login
+                    toggleLogin={this.toggleLogin}
+                    toggleRegister={this.toggleRegister}
+                    togglePRButton={this.togglePRButton}
+                    toggleLogoutButton={this.toggleLogoutButton}
+                    changeLoginState={this.props.changeLoginState}
+                  />
                 )}
               </Col>
             </Row>
@@ -70,15 +83,26 @@ class SideNav extends Component {
             >
               <Col className="pb-2">
                 {this.state.showRegister && (
-                  <Register toggleLogin={this.toggleLogin} toggleRegister={this.toggleRegister}/>
+                  <Register
+                    toggleLogin={this.toggleLogin}
+                    toggleRegister={this.toggleRegister}
+                  />
                 )}
               </Col>
             </Row>
           </Col>
         </Container>
-        {this.state.showPRButton && (
-        <PRButton type="button" toggle={this.onToggleModal}/>
-        )}
+       
+          {/* {this.state.showPRButton && (
+            <PRButton type="button" toggle={this.onToggleModal} />
+          )} */}
+        
+          {/* {this.state.showLogoutButton && (<LogoutButton type="button" />)} */}
+        
+          {this.state.showPRButton && (
+            <PRButton type="button" toggle={this.onToggleModal} />
+          )}
+          {this.state.showLogoutButton && (<LogoutButton type="button" />)}
       </Row>
     );
   }

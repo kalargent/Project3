@@ -53,7 +53,8 @@ class PRModal extends Component {
       pr: this.state.pr,
       };
     API.postLiftModel(newLift)
-    console.log(newLift);    
+    this.props.onToggle(false)
+  
   }
 
   static getDerivedStateFromProps = (props, state) => {

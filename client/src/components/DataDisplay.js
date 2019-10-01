@@ -16,7 +16,7 @@ const Lifts = props => (
       <td>{props.lifts.date}</td>
       <td>
           <EditButton type="button"/>
-          <DeleteButton type="button"/>
+          <DeleteButton type="button" id= {props.lifts._id}/>
           {/* <Link to={"/edit/"+props.lifts._id}>Edit</Link> */}
       </td>
   </tr>

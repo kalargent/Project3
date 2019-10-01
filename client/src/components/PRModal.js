@@ -44,6 +44,13 @@ class PRModal extends Component {
     });
   };
 
+  // async handleCreation(event) {
+  //   this.setState({ loading: true });
+  //   await Axios.post('/createElement', data);
+  //   this.setState({ data: this.state.data.concat(data), loading: false });
+  // }
+  
+
   handleSubmit = (event) => {
     // const token = serverResult;
     event.preventDefault();
@@ -53,8 +60,12 @@ class PRModal extends Component {
       pr: this.state.pr,
       };
     API.postLiftModel(newLift)
-    this.props.onToggle(false)
-  
+    .then (() =>  { 
+      this.props.onToggle(false); 
+      window.location.reload(); 
+    })
+    
+    // this.setState();
   }
 
   static getDerivedStateFromProps = (props, state) => {
@@ -107,7 +118,7 @@ class PRModal extends Component {
 
         <Modal.Footer>
           <Button variant="secondary" 
-          onClick={this.handleClose}
+          onClick={this.handleClose} 
           >Close</Button>
           <Button variant="primary" type="submit" 
           onClick={this.handleClose, this.handleSubmit}

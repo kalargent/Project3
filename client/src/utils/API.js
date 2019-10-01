@@ -1,4 +1,5 @@
 import axios from "axios";
+import DeleteButton from "../components/DeleteButton"; 
 // import exerciseController from "../../../controllers/exerciseController"
 // const router = require("express").Router();
 
@@ -47,23 +48,35 @@ export default {
     findByUser = JSON.parse(findByUser);
     let token = findByUser.token;
     let findByUserID = findByUser.user;
-    
-// var config = {
-//   Authorization: "Bearer " + token, 
-//   UserID: findByUserID
-// }
 
-    return axios.get("/api/users/dashboard", {      headers: {
-      Authorization: "Bearer " + token, 
-      UserID: findByUserID
-    }
-}, findByUserID, {
-      // headers: {
-      //   Authorization: "Bearer " + token, 
-      //   UserID: findByUserID
-      // }
+    return axios.get(
+      "/api/users/dashboard",
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+          UserID: findByUserID
+        }
+      },
+      findByUserID,
+      {}
+    );
+  },
+
+  deleteLift: function(liftID) {
+    console.log("are we getting to delete in APi?");
+    let findByUser = localStorage.getItem("user");
+    console.log("find by user", findByUser);
+
+    findByUser = JSON.parse(findByUser);
+    let token = findByUser.token;
+    let findByUserID = findByUser.user;
+     
+
+    return axios.delete("api/users/" + liftID, {
+      headers: {
+        Authorization: "Bearer " + token,
+        UserID: findByUserID
+      }
     });
-  }, 
-
-  
+  }
 };

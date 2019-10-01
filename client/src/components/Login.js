@@ -21,9 +21,7 @@ class Login extends Component {
       this.props.changeLoginState(true);
       this.props.toggleLogin(false);
       this.props.togglePRButton(true);
-    // API.getfindAll ().then(()=>{
-
-    // })
+      this.props.toggleLogoutButton(true); 
     });
     // JSON.parse(loginUser);
     console.log(loginUser);
@@ -36,9 +34,18 @@ class Login extends Component {
     });
   };
 
-  // componentDidMount() {
-  //   this.changeLoginState();
-  // };
+  componentDidMount() {
+    // Check if you have a user in local storage
+    var checkUser = localStorage.getItem('user');
+    checkUser = JSON.parse(checkUser);
+    
+    if (checkUser && checkUser.token) {
+      this.props.changeLoginState(true);
+      this.props.toggleLogin(false);
+      this.props.togglePRButton(true);
+      this.props.toggleLogoutButton(true); 
+    }
+  };
 
   changeLoginState = () => {
     let token = localStorage.getItem("user");

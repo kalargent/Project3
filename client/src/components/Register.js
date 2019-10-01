@@ -30,7 +30,10 @@ class Login extends Component {
       password: this.state.password,
       password2: this.state.password2
     };
-    API.postRegister(newUser);
+    API.postRegister(newUser)
+    .then (() => {
+      this.hideRegisterShowLogin(); 
+    })
     console.log(newUser);    
   }
 

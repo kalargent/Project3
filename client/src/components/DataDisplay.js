@@ -5,6 +5,8 @@ import "./styles/style.css";
 // import { Link } from 'react-router-dom';
 import axios from 'axios';
 import API from "../utils/API";
+import EditButton from "../components/EditButton"; 
+import DeleteButton from "../components/DeleteButton"; 
 
 const Lifts = props => (
   <tr>
@@ -13,6 +15,8 @@ const Lifts = props => (
       <td>{props.lifts.pr}</td>
       <td>{props.lifts.date}</td>
       <td>
+          <EditButton type="button"/>
+          <DeleteButton type="button"/>
           {/* <Link to={"/edit/"+props.lifts._id}>Edit</Link> */}
       </td>
   </tr>

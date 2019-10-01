@@ -7,7 +7,7 @@ import React, { Component } from "react";
 class LogoutButton extends Component {
     logout = () => {
         localStorage.clear();
-        window.location.href = 'http://localhost:3000/';
+        window.location.href = '/';
     }
 
   render () {

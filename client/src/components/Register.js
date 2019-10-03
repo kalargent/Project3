@@ -89,7 +89,7 @@ class Login extends Component {
       <Form.Group controlId="formGroupPassword2">
         <Form.Label>Enter Password Again:</Form.Label>
         <Form.Control
-          type="password2"
+          type="password"
           placeholder="Confirm Password"
           value={this.state.password2}
           onChange={this.handleInputChange}
@@ -100,7 +100,7 @@ class Login extends Component {
     Register
     </Button>
       <Button className="m-2" variant="danger" id="button" onClick={this.hideRegisterShowLogin}>
-    Login
+    Go Back
     </Button>
     </Form>
     )

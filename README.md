@@ -7,7 +7,7 @@
 * Account Registration
 * Authentication (Login/Logout)
 * A welcome page that lists any PRs the user has added
-* The ability to add/update/delete a specific lift 
+* The ability to add/delete a specific lift 
 * Save PRs for each user 
 
 ## Technologies Used
@@ -31,6 +31,8 @@
 * Track cardio workouts 
 * Integration with GymKit or FitBit to get basic data
 * Calculate the weight as it is added with visual of weights being added to bar
+* Ability to edit a lift previously added
+* Use Moment.js to format date
 
 
 

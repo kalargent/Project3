@@ -60,13 +60,13 @@ class SideNav extends Component {
         </Col>
 
         {!this.state.showPRButton && (
-        <Container className="mt-4">
+        <Container className="mt-4 pl-0">
           <Col>
             <Row
               className="justify-content-md-center text-white"
               // style={logStyle}
             >
-              <Col>
+              <Col className="m-0">
                 {this.state.showLogin && (
                   <Login
                     toggleLogin={this.toggleLogin}

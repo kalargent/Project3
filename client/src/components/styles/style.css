@@ -47,15 +47,9 @@ body, .hideScroll {
     color: white;
     text-align: center;
     /* font-family: 'Stardos Stencil', cursive; */
-    /* font-family: 'Saira Stencil One', cursive; */
-    /* font-family: 'Racing Sans One', cursive; */
-    /* font-family: 'Sarpanch', sans-serif; */
-
     /*if using Timmana use top margin*/
     font-family: 'Timmana', sans-serif;
     margin-top: 10px;
-
-    /* font-family: 'Piedra', cursive; */
 }
 
 .col {
@@ -112,7 +106,4 @@ td {
 
 .modal-footer {
     background-color: rgb(81, 110, 134);
-}
-
-.modal-body {
 }

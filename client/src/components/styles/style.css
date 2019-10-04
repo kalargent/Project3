@@ -101,3 +101,18 @@ td {
     color: #333333;
 }
 
+.modal-title {
+    font-family: 'Stardos Stencil', cursive;
+    color: white;
+}
+
+.modal-header {
+    background-color: rgb(81, 110, 134);
+}
+
+.modal-footer {
+    background-color: rgb(81, 110, 134);
+}
+
+.modal-body {
+}

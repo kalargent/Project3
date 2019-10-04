@@ -95,7 +95,7 @@ class Login extends Component {
           id="button"
           type="submit"
         >
-          Submit
+          Login
         </Button>
 
         <Button

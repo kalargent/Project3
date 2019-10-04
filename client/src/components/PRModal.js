@@ -117,10 +117,10 @@ class PRModal extends Component {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" 
+          <Button variant="outline-light" 
           onClick={this.handleClose} 
           >Close</Button>
-          <Button variant="primary" type="submit" 
+          <Button variant="outline-light" type="submit" 
           onClick={this.handleClose, this.handleSubmit}
           // onSubmit={this.handleSubmit}
           >Save changes</Button>

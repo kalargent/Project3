@@ -84,6 +84,14 @@ th {
     max-width: 16rem;
 }
 
+.pr-image-small {
+    max-width: 40%;
+}
+
+.pr-image-medium {
+    max-width: auto;
+}
+
 th {
     background-color: #333333;
     color: white;

@@ -1,6 +1,7 @@
 // import Button from 'react-bootstrap/Button';
 import Image from "react-bootstrap/Image";
-import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import  { Breakpoint, BreakpointProvider } from 'react-socks';
 
 import React, { Component } from "react";
 
@@ -10,14 +11,28 @@ class PRButton extends Component {
       // <Button className="m-2" variant="danger" id="button" onClick={() => this.props.toggle(true)}>
       //   Add a New PR!
       // </Button>
-      <Container>
-        <Image
-          src={require("./images/NewPRButton.png")}
-          className="pr-image"
-          onClick={() => this.props.toggle(true)}
-          fluid="true"
-          />
-      </Container>
+      <BreakpointProvider>
+        <Breakpoint small down>
+          <Col className="text-center m-0">
+            <Image
+                src={require("./images/NewPRButton.png")}
+                className="pr-image-small"
+                onClick={() => this.props.toggle(true)}
+                fluid="true"
+                />
+          </Col>
+        </Breakpoint>
+        <Breakpoint medium up>
+          <Col className="text-center pl-0 m-0 mb-6">
+            <Image
+                src={require("./images/NewPRButton.png")}
+                className="pr-image-medium p-2"
+                onClick={() => this.props.toggle(true)}
+                fluid="true"
+                />
+          </Col>
+        </Breakpoint>
+      </BreakpointProvider>
     );
   }
 }

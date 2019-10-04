@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import Table from "react-bootstrap/Table";
 import "./styles/style.css";
 // import { Link } from 'react-router-dom';
@@ -53,18 +54,20 @@ export default class DataDisplay extends Component {
   render() {
     return (
       <div>
-        <Table responsive="true" striped bordered hover variant="light">
-          <thead>
-            <tr>
-              <th>Lift Name</th>
-              <th>Reps</th>
-              <th>PR</th>
-              <th>Date</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>{this.liftList()}</tbody>
-        </Table>
+        <Col >
+          <Table responsive="true" striped bordered hover variant="light">
+            <thead>
+              <tr>
+                <th>Lift Name</th>
+                <th>Reps</th>
+                <th>PR</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>{this.liftList()}</tbody>
+          </Table>
+        </Col>
       </div>
     );
   }

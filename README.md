@@ -15,7 +15,7 @@
 * Server: NodeJS/ExpressJS 
 * Database: MongoDB/Mongoose
 * APIs: GET and POST Routes
-* Libraries: React Bootstrap, BCrypt, JWT, Moment.js
+* Libraries: React Bootstrap, React Socks, BCrypt, JWT, Moment.js
 * Authentication: Passport.js
 
 ## Team Roles

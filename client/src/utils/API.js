@@ -1,5 +1,4 @@
 import axios from "axios";
-import DeleteButton from "../components/DeleteButton"; 
 // import exerciseController from "../../../controllers/exerciseController"
 // const router = require("express").Router();
 

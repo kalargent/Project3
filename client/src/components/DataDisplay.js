@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Table from "react-bootstrap/Table";
 import "./styles/style.css";
-// import { Link } from 'react-router-dom';
-import axios from "axios";
 import API from "../utils/API";
-// import EditButton from "../components/EditButton";
 import DeleteButton from "../components/DeleteButton";
 import moment from "moment";
 

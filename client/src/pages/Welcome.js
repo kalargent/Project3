@@ -37,7 +37,7 @@ changeLoginState = (loginHandle) => {
         <Jumbo />
         <Row id="body" className="m-0">
           <Col
-            md={3}
+            md={2}
             id="sideContainer"
             className="bg-dk-gray heightauto align-left hideScroll"
           >

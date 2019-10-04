@@ -59,7 +59,7 @@ class SideNav extends Component {
           }
         </Col>
 
-        <Container className="mt-4 ">
+        <Container className="mt-4">
           <Col>
             <Row
               className="justify-content-md-center text-white"
@@ -92,17 +92,20 @@ class SideNav extends Component {
             </Row>
           </Col>
         </Container>
-       
-          {/* {this.state.showPRButton && (
-            <PRButton type="button" toggle={this.onToggleModal} />
-          )} */}
-        
-          {/* {this.state.showLogoutButton && (<LogoutButton type="button" />)} */}
-        
+        <Container>
+       <Row className="justify-content-center">
+         <Col md="auto" xs="auto">
           {this.state.showPRButton && (
             <PRButton type="button" toggle={this.onToggleModal} />
           )}
-          {this.state.showLogoutButton && (<LogoutButton type="button" />)}
+          </Col>
+          </Row>
+          <Row className="justify-content-center">
+          <Col md="auto" xs="auto">
+          {this.state.showLogoutButton && (<LogoutButton type="button"/>)}
+          </Col>
+          </Row>
+          </Container>
       </Row>
     );
   }

@@ -1,29 +1,40 @@
-# Create React Express App
+# SARGE
+* CrossFit personal record tracking app.  Manage your PRs for all lifts.
 
-## About This Boilerplate
+[Deployed on Heroku](https://guarded-oasis-99226.herokuapp.com/)
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## Minimum Viable Product (MVP) 
+* Account Registration
+* Authentication (Login/Logout)
+* A welcome page that lists any PRs the user has added
+* The ability to add/delete a specific lift 
+* Save PRs for each user 
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Technologies Used
+* Framework: ReactJS and React Router 
+* Server: NodeJS/ExpressJS 
+* Database: MongoDB/Mongoose
+* APIs: GET and POST Routes
+* Libraries: React Bootstrap, BCrypt, JWT, Moment.js
+* Authentication: Passport.js
 
-## Starting the app locally
+## Team Roles
+* Project Management: Karen, Keith, Jeff, Pam 
+* Product Management: Karen 
+* Primary Front End: Jeff, Pam
+* Primary Backend: Karen, Keith 
+* Custom HTML/CSS: Jeff, Pam 
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+## Future Improvements
+* Embed instructional videos into each lift so the user can see how to safely perform movements 
+* Make the app native mobile (iOS/Android) 
+* Track cardio workouts 
+* Integration with GymKit or FitBit to get basic data
+* Calculate the weight as it is added with visual of weights being added to bar
+* Ability to edit a lift previously added
 
-```
-npm install
-```
 
-This should install node modules within the server and the client folder.
 
-After both installations complete, run the following command in your terminal:
 
-```
-npm start
-```
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.

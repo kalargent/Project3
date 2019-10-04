@@ -1,8 +1,9 @@
 .jumboStyle {
-    background: black;
+    background: #333333;
+    background-size: 100%;
 }
 .red {
-    color: red;
+    color: #dc3545;
 }
 
 .bg-gray {
@@ -21,6 +22,11 @@
     height: 100vh;
     overflow: auto;
 }
+
+.width100 {
+    width: 100vw;
+}
+
 
 body, .hideScroll {
     -ms-overflow-style: none;
@@ -41,15 +47,9 @@ body, .hideScroll {
     color: white;
     text-align: center;
     /* font-family: 'Stardos Stencil', cursive; */
-    /* font-family: 'Saira Stencil One', cursive; */
-    /* font-family: 'Racing Sans One', cursive; */
-    /* font-family: 'Sarpanch', sans-serif; */
-
     /*if using Timmana use top margin*/
     font-family: 'Timmana', sans-serif;
     margin-top: 10px;
-
-    /* font-family: 'Piedra', cursive; */
 }
 
 .col {
@@ -75,5 +75,35 @@ th {
 }
 
 .logo-small {
-    max-width: 12rem;
+    max-width: 16rem;
+}
+
+th {
+    background-color: #333333;
+    color: white;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid rgba(58, 58, 58, 0.712);
+}
+
+.table-light tbody+tbody, .table-light th, .table-light thead th {
+    border-color: rgb(107, 107, 107);
+}
+
+td {
+    color: #333333;
+}
+
+.modal-title {
+    font-family: 'Stardos Stencil', cursive;
+    color: white;
+}
+
+.modal-header {
+    background-color: rgb(81, 110, 134);
+}
+
+.modal-footer {
+    background-color: rgb(81, 110, 134);
 }

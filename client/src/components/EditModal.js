@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import Row from "react-bootstrap/Row";
 // import Col from "react-bootstrap/Col";
 // import Login from "./Login";
-// import Register from "./Register";
 // import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -18,11 +17,12 @@ import Form from 'react-bootstrap/Form';
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
 
-class PRModal extends Component {
+class EditModal extends Component {
   state = {
-    liftName: "",
-    reps: "",
-    pr: "",
+    liftID: this.props.id, 
+    liftName: this.props.liftName,
+    reps:  this.props.reps,
+    pr:  this.props.pr,
     show: false
   }
 
@@ -59,7 +59,7 @@ class PRModal extends Component {
       reps: this.state.reps,
       pr: this.state.pr,
       };
-    API.postLiftModel(newLift)
+    API.updateLift(newLift)
     .then (() =>  { 
       this.props.onToggle(false); 
       window.location.reload(); 
@@ -88,7 +88,7 @@ class PRModal extends Component {
         <Form.Label>Lift Name:</Form.Label>
         <Form.Control
           type="name"
-          placeholder="Enter Lift"
+          placeholder= {this.state.liftName}
           defaultValue={this.state.liftName}
           onChange={this.handleInputChange}
           name="liftName"
@@ -98,7 +98,7 @@ class PRModal extends Component {
         <Form.Label>Reps:</Form.Label>
         <Form.Control
           type="reps"
-          placeholder="Enter Reps"
+          placeholder={this.state.reps}
           defaultValue={this.state.reps}
           onChange={this.handleInputChange}
           name="reps"
@@ -108,7 +108,7 @@ class PRModal extends Component {
         <Form.Label>Personal Record:</Form.Label>
         <Form.Control
           type="record"
-          placeholder="Enter PR"
+          placeholder={this.state.pr}
           defaultValue={this.state.pr}
           onChange={this.handleInputChange}
           name="pr"
@@ -117,10 +117,10 @@ class PRModal extends Component {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="outline-light" 
+          <Button variant="secondary" 
           onClick={this.handleClose} 
           >Close</Button>
-          <Button variant="outline-light" type="submit" 
+          <Button variant="primary" type="submit" 
           onClick={this.handleClose, this.handleSubmit}
           // onSubmit={this.handleSubmit}
           >Save changes</Button>
@@ -129,4 +129,4 @@ class PRModal extends Component {
     );
   }
 }
-export default PRModal;
+export default EditModal;

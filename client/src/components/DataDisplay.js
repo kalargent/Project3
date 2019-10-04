@@ -49,7 +49,7 @@ export default class DataDisplay extends Component {
   render() {
       return (
           <div>
-              <Table striped bordered hover variant="dark">
+              <Table striped bordered hover variant="light">
                   <thead>
                       <tr>
                           <th>Lift Name</th>

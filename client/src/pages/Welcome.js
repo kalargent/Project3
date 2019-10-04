@@ -33,9 +33,9 @@ changeLoginState = (loginHandle) => {
       // When page loads login should display and registration should be hidden
       // When user clicks register, login should hide and registration should become visible
       // reverse process when user clicks submit on registration form
-      <div className="">
+      <div className="width100">
         <Jumbo />
-        <Row id="body">
+        <Row id="body" className="m-0">
           <Col
             md={3}
             id="sideContainer"
@@ -44,7 +44,7 @@ changeLoginState = (loginHandle) => {
             <SideNav changeLoginState={this.changeLoginState}/>
           </Col>
           <Col
-            fluid
+            fluid="true"
             id="mainContainer"
             className="height100 text-center m-3 pl-md-0 justify-content-md-center"
           >

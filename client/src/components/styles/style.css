@@ -1,5 +1,6 @@
 .jumboStyle {
-    background: black;
+    background: #333333;
+    background-size: 100%;
 }
 .red {
     color: #dc3545;
@@ -21,6 +22,11 @@
     height: 100vh;
     overflow: auto;
 }
+
+.width100 {
+    width: 100vw;
+}
+
 
 body, .hideScroll {
     -ms-overflow-style: none;
@@ -76,4 +82,21 @@ th {
 
 .logo-small {
     max-width: 16rem;
+}
+
+th {
+    background-color: #333333;
+    color: white;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid rgba(58, 58, 58, 0.712);
+}
+
+.table-light tbody+tbody, .table-light th, .table-light thead th {
+    border-color: rgb(107, 107, 107);
+}
+
+td {
+    color: #333333;
 }

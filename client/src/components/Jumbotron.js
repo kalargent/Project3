@@ -6,7 +6,7 @@ import "./styles/style.css";
 
 function Jumbo() {
   return (
-    <Jumbotron fluid className="text-center py-3 jumboStyle mb-0">
+    <Jumbotron fluid="true" className="text-center py-3 jumboStyle mb-0">
       <Image src={require("./images/Sarge.png")} className="logo-small"/>
     </Jumbotron>
   );

@@ -15,7 +15,7 @@
 * Server: NodeJS/ExpressJS 
 * Database: MongoDB/Mongoose
 * APIs: GET and POST Routes
-* Libraries: React Bootstrap, BCrypt, JWT
+* Libraries: React Bootstrap, BCrypt, JWT, Moment.js
 * Authentication: Passport.js
 
 ## Team Roles
@@ -32,7 +32,6 @@
 * Integration with GymKit or FitBit to get basic data
 * Calculate the weight as it is added with visual of weights being added to bar
 * Ability to edit a lift previously added
-* Use Moment.js to format date
 
 
 

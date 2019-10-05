@@ -23,7 +23,7 @@ class LogoutButton extends Component {
             <Image
             id="button"
               src={require("./images/LogoutButton.png")}
-              className="pr-image-small"
+              className="pr-image-medium"
               onClick = {this.logout} 
               fluid="true"
             />

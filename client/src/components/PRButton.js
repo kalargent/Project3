@@ -16,7 +16,7 @@ class PRButton extends Component {
             <Col className="text-center m-0">
               <Image
                   src={require("./images/NewPRButton.png")}
-                  className="pr-image-small"
+                  className="pr-image-medium"
                   onClick={() => this.props.toggle(true)}
                   fluid="true"
                   />

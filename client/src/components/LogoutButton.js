@@ -28,6 +28,7 @@ class LogoutButton extends Component {
               fluid="true"
             />
           </Col>
+        //react-socks currently down for repair. default deployed.
       //   </Breakpoint>
       //   <Breakpoint medium up>
       //     <Col className="text-center mt-5 p-0 m-0">

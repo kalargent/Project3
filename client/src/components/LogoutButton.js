@@ -19,7 +19,7 @@ class LogoutButton extends Component {
 
       <BreakpointProvider>
         <Breakpoint small down>
-          <Col className="text-right m-0">
+          <Col className="text-center mb-3 m-0">
             <Image
             id="button"
               src={require("./images/LogoutButton.png")}

@@ -13,7 +13,7 @@ class PRButton extends Component {
       // </Button>
         // <BreakpointProvider>
         //   <Breakpoint small down>
-            <Col className="text-center m-0">
+            <Col className="text-center m-0 mb-3">
               <Image
                   src={require("./images/NewPRButton.png")}
                   className="pr-image-medium"

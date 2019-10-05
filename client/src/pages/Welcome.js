@@ -46,7 +46,7 @@ changeLoginState = (loginHandle) => {
           <Col
             fluid="true"
             id="mainContainer"
-            className="height100 text-center m-3 pl-md-0 justify-content-md-center"
+            className="height100 text-center ml-0 mt-3  justify-content-md-center"
           >
             {/* <LoggedIn isLoggedIn={false}/> */}
             {this.state.loginHandle && (<DataDisplay changeLoginState={this.state.loginHandle}/>)}

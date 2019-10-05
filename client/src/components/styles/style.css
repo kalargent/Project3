@@ -78,6 +78,28 @@ th {
     max-width: 16rem;
 }
 
+.pr-image-small {
+    max-width: 40%;
+    cursor:pointer;
+}
+
+.pr-image-small:hover {
+    max-width: 40%;
+    cursor:pointer;
+    transform: scale(1.1);
+}
+
+.pr-image-medium {
+    max-width: auto;
+    cursor:pointer;
+}
+
+.pr-image-medium:hover {
+    max-width: auto;
+    cursor:pointer;
+    transform: scale(1.1);
+}
+
 th {
     background-color: #333333;
     color: white;

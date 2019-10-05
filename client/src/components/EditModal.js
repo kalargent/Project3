@@ -1,21 +1,9 @@
 import React, { Component } from "react";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
-// import Login from "./Login";
-// import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import "./styles/style.css";
 import API from "../utils/API";
 import Form from 'react-bootstrap/Form';
-
-// const handleClose = () => show(false);
-// const show = () => setShow(true);
-// const setShow = () => show
-
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
 
 class EditModal extends Component {
   state = {
@@ -27,11 +15,6 @@ class EditModal extends Component {
   }
 
   handleClose = () => {
-    // this.props.toggle()
-    // this.setState({
-    //   show: false
-    // }, () => this.props.onToggle(this.state.show)
-    // ) 
     this.props.onToggle(false)
   }
 
@@ -44,15 +27,7 @@ class EditModal extends Component {
     });
   };
 
-  // async handleCreation(event) {
-  //   this.setState({ loading: true });
-  //   await Axios.post('/createElement', data);
-  //   this.setState({ data: this.state.data.concat(data), loading: false });
-  // }
-  
-
   handleSubmit = (event) => {
-    // const token = serverResult;
     event.preventDefault();
     var newLift = {
       liftName: this.state.liftName,
@@ -64,8 +39,6 @@ class EditModal extends Component {
       this.props.onToggle(false); 
       window.location.reload(); 
     })
-    
-    // this.setState();
   }
 
   static getDerivedStateFromProps = (props, state) => {

@@ -21,7 +21,6 @@ class Login extends Component {
 
 
   handleSubmit = (event) => {
-    // const token = serverResult;
     event.preventDefault();
     var newUser = {
       name: this.state.name,

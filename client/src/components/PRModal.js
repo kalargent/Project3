@@ -10,14 +10,6 @@ import "./styles/style.css";
 import API from "../utils/API";
 import Form from 'react-bootstrap/Form';
 
-// const handleClose = () => show(false);
-// const show = () => setShow(true);
-// const setShow = () => show
-
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
 class PRModal extends Component {
   state = {
     liftName: "",

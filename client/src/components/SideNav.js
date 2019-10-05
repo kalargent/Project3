@@ -51,7 +51,6 @@ class SideNav extends Component {
       <Row className="justify-content-center">
         <Col>
           {
-            //this.state.showModal &&
             <PRModal
               show={this.state.showModal}
               onToggle={this.onToggleModal}
@@ -64,7 +63,6 @@ class SideNav extends Component {
           <Col>
             <Row
               className="justify-content-md-center text-white"
-              // style={logStyle}
             >
               <Col className="m-0">
                 {this.state.showLogin && (
@@ -80,7 +78,6 @@ class SideNav extends Component {
             </Row>
             <Row
               className="justify-content-md-center text-white"
-              // style={regStyle}
             >
               <Col className="pb-2">
                 {this.state.showRegister && (

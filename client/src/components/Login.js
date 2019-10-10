@@ -7,11 +7,9 @@ class Login extends Component {
   state = {
     username: "",
     password: "",
-    // loggedIn: false
   };
 
   handleSubmit = event => {
-    // const token = serverResult;
     event.preventDefault();
     var loginUser = {
       username: this.state.username,
@@ -23,7 +21,6 @@ class Login extends Component {
       this.props.togglePRButton(true);
       this.props.toggleLogoutButton(true); 
     });
-    // JSON.parse(loginUser);
     console.log(loginUser);
   };
 

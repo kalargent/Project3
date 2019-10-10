@@ -1,7 +1,6 @@
-// import Button from 'react-bootstrap/Button';
 import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
-import { Breakpoint, BreakpointProvider } from "react-socks";
+// import { Breakpoint, BreakpointProvider } from "react-socks";
 
 import React, { Component } from "react";
 
@@ -17,20 +16,9 @@ class LogoutButton extends Component {
       //   Logout!
       // </Button>
 
-      <BreakpointProvider>
-        <Breakpoint small down>
-          <Col className="text-right m-0">
-            <Image
-            id="button"
-              src={require("./images/LogoutButton.png")}
-              className="pr-image-small"
-              onClick = {this.logout} 
-              fluid="true"
-            />
-          </Col>
-        </Breakpoint>
-        <Breakpoint medium up>
-          <Col className="text-center mt-5 p-0 m-0">
+      // <BreakpointProvider>
+      //   <Breakpoint small down>
+          <Col className="text-center mt-3 mb-3 p-0 m-0">
             <Image
             id="button"
               src={require("./images/LogoutButton.png")}
@@ -39,8 +27,20 @@ class LogoutButton extends Component {
               fluid="true"
             />
           </Col>
-        </Breakpoint>
-      </BreakpointProvider>
+        //react-socks currently down for repair. default deployed.
+      //   </Breakpoint>
+      //   <Breakpoint medium up>
+      //     <Col className="text-center mt-5 p-0 m-0">
+      //       <Image
+      //       id="button"
+      //         src={require("./images/LogoutButton.png")}
+      //         className="pr-image-medium"
+      //         onClick = {this.logout} 
+      //         fluid="true"
+      //       />
+      //     </Col>
+      //   </Breakpoint>
+      // </BreakpointProvider>
     );
   }
 }

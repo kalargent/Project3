@@ -1,5 +1,6 @@
 import EditButton from "../components/EditButton";
 import DeleteButton from "../components/DeleteButton";
+
 import Button from "react-bootstrap/Button";
 
 import API from "../utils/API";
@@ -29,18 +30,15 @@ class Lifts extends Component {
   render() {
     return (
       <tr>
-        {/* <td>{props.lifts.liftName}</td>
-        <td>{props.lifts.reps}</td>
-        <td>{props.lifts.pr}</td>
-        <td>{props.lifts.date}</td> */}
+        <td>{this.props.lifts.liftName}</td>
+        <td>{this.props.lifts.reps}</td>
+        <td>{this.props.lifts.pr}</td>
+        <td>{this.props.lifts.date}</td>
         <td>
-          {/* <EditButton type="button" toggle={this.props.onToggle} /> */}
-          <Button className="m-2" variant="danger" id="button" onClick={() => this.props.toggle(true)}>
-          Edit Lift 
-        </Button>
-        
-          <DeleteButton type="button" />
-          {/* <Link to={"/edit/"+props.lifts._id}>Edit</Link> */}
+        <DeleteButton type="button" id={this.props.lifts._id} />
+      <EditButton type="button" id={this.props.lifts._id} onClick={() => this.props.toggle(true)}
+/>
+
         </td>
       </tr>
     );

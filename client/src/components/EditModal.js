@@ -53,7 +53,7 @@ class EditModal extends Component {
       onSubmit={this.handleSubmit} show={this.state.show} onHide={this.handleClose}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Add New Lift</Modal.Title>
+          <Modal.Title>Update Lift</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>

@@ -1,8 +1,7 @@
 import EditButton from "../components/EditButton";
 import DeleteButton from "../components/DeleteButton";
-
+import EditModal from "../components/EditModal";
 import Button from "react-bootstrap/Button";
-
 import API from "../utils/API";
 import React, { Component } from "react";
 
@@ -11,7 +10,8 @@ class Lifts extends Component {
     liftID: this.props.id,
     liftName: this.props.liftName,
     reps: this.props.reps,
-    pr: this.props.pr
+    pr: this.props.pr,
+    editModal: false
   };
 
   handleEdit = event => {
@@ -27,6 +27,10 @@ class Lifts extends Component {
     // this.setState();
   };
 
+  onToggleModal = state => {
+    this.setState({ editModal: state });
+  };
+
   render() {
     return (
       <tr>
@@ -35,11 +39,14 @@ class Lifts extends Component {
         <td>{this.props.lifts.pr}</td>
         <td>{this.props.lifts.date}</td>
         <td>
-        <DeleteButton type="button" id={this.props.lifts._id} />
-      <EditButton type="button" id={this.props.lifts._id} onClick={() => this.props.toggle(true)}
-/>
-
+          <DeleteButton type="button" id={this.props.lifts._id} />
+          <EditButton
+            type="button"
+            id={this.props.lifts._id}
+            toggle={this.onToggleModal}
+          />
         </td>
+        <EditModal show={this.state.editModal} onToggle={this.onToggleModal} />
       </tr>
     );
   }

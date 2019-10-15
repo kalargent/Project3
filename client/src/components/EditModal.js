@@ -14,12 +14,6 @@ class EditModal extends Component {
     show: false
   }
 
-  handleClose = () => {
-    this.props.onToggle(false)
-  }
-
-  
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({

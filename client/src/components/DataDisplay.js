@@ -57,7 +57,7 @@ export default class DataDisplay extends Component {
   liftList() {
     
     return this.state.lifts.map(function(currentLift, i) {
-      return <Lifts toggle={this.onToggleModal} lifts={currentLift} key={i} />;
+      return <Lifts toggle lifts={currentLift} key={i} />;
     });
   }
   render() {

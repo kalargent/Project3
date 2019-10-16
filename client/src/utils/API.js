@@ -79,8 +79,8 @@ export default {
     });
   },
 
-  editLift: function(liftID) {
-    console.log("are we getting to delete in APi?");
+  editLift: function(liftID, newLift) {
+    console.log("are we getting to update in APi?");
     let findByUser = localStorage.getItem("user");
     console.log("find by user", findByUser);
 
@@ -89,7 +89,7 @@ export default {
     let findByUserID = findByUser.user;
      
 
-    return axios.update("api/users/" + liftID, {
+    return axios.put("api/users/update/" + liftID, newLift, {
       headers: {
         Authorization: "Bearer " + token,
         UserID: findByUserID

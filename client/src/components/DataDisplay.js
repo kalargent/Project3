@@ -43,7 +43,7 @@ export default class DataDisplay extends Component {
         console.log("response is: ", response);
         this.setState({ lifts: response.data });
         console.log("#####");
-        // this.setState({ date: moment(response.data.date).format("MMM Do YY") });
+        this.setState({ date: moment(response.data.date).format("MMM Do YY") });
         // let date = moment(response.date).format("MMM Do YY");
         console.log(this.state.lifts);
         // console.log(this.state.date);

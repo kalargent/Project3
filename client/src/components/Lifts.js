@@ -4,6 +4,8 @@ import EditModal from "../components/EditModal";
 import Button from "react-bootstrap/Button";
 import API from "../utils/API";
 import React, { Component } from "react";
+import moment from "moment";
+
 
 class Lifts extends Component {
   state = {
@@ -38,7 +40,7 @@ class Lifts extends Component {
         <td>{this.props.lifts.liftName}</td>
         <td>{this.props.lifts.reps}</td>
         <td>{this.props.lifts.pr}</td>
-        <td>{this.props.lifts.date}</td>
+        <td>{ moment(this.props.lifts.date).format("LL")}</td>
         <td>
           <DeleteButton type="button" id={this.props.lifts._id} />
           <EditButton

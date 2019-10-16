@@ -77,5 +77,23 @@ export default {
         UserID: findByUserID
       }
     });
-  }
+  },
+
+  editLift: function(liftID, newLift) {
+    console.log("are we getting to update in APi?");
+    let findByUser = localStorage.getItem("user");
+    console.log("find by user", findByUser);
+
+    findByUser = JSON.parse(findByUser);
+    let token = findByUser.token;
+    let findByUserID = findByUser.user;
+     
+
+    return axios.put("api/users/update/" + liftID, newLift, {
+      headers: {
+        Authorization: "Bearer " + token,
+        UserID: findByUserID
+      }
+    });
+  },
 };

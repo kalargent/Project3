@@ -29,7 +29,7 @@ class Lifts extends Component {
 
   onToggleModal = state => {
     this.setState({ editModal: state });
-    console.log("edit button clicked and state is " + this.state.editModal)
+    console.log(this.props.lifts.liftName);
   };
 
   render() {
@@ -47,10 +47,14 @@ class Lifts extends Component {
             toggle={this.onToggleModal}
           />
         </td>
-        <EditModal 
-          show={this.state.editModal} 
+        <EditModal
+          show={this.state.editModal}
           toggle={this.onToggleModal}
-          />
+          id={this.props.lifts._id}
+          liftName={this.props.lifts.liftName}
+          reps={this.props.lifts.reps}
+          pr={this.props.lifts.pr}
+        />
       </tr>
     );
   }

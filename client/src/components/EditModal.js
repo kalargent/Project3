@@ -28,6 +28,7 @@ class EditModal extends Component {
       reps: this.state.reps,
       pr: this.state.pr,
       };
+      console.log(newLift);
     API.updateLift(newLift)
     .then (() =>  { 
       this.props.toggle(false); 

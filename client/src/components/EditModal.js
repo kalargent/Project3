@@ -30,7 +30,7 @@ class EditModal extends Component {
       };
     API.updateLift(newLift)
     .then (() =>  { 
-      this.props.onToggle(false); 
+      this.props.toggle(false); 
       window.location.reload(); 
     })
   }
@@ -39,6 +39,10 @@ class EditModal extends Component {
     console.log(props, state)
     return {show: props.show}
 
+  }
+
+  handleClose = () => {
+    this.props.toggle(false)
   }
 
   render() {
@@ -85,10 +89,10 @@ class EditModal extends Component {
 
         <Modal.Footer>
           <Button variant="secondary" 
-          onClick={this.handleClose} 
-          >Close</Button>
+      onClick={() => (this.props.toggle(false))}
+      >Close</Button>
           <Button variant="primary" type="submit" 
-          onClick={this.handleClose, this.handleSubmit}
+          onClick={ this.handleSubmit}
           // onSubmit={this.handleSubmit}
           >Save changes</Button>
         </Modal.Footer>

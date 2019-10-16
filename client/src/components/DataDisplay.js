@@ -64,14 +64,14 @@ export default class DataDisplay extends Component {
     
     return (
       <div>
-         <Col>
+         {/* <Col>
           {
             <EditModal
               show={this.state.editModal}
               toggle={this.onToggleModal}
             />
           }
-        </Col>
+        </Col> */}
         <Col >
           <Table responsive="true" striped bordered hover variant="light">
             <thead>

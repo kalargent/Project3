@@ -16,7 +16,8 @@ class PRModal extends Component {
     reps: "",
     pr: "",
     show: false, 
-    currentWeight:0
+    currentWeight: 0, 
+    barWeight: 0
     }
 
   handleClose = () => {
@@ -63,13 +64,13 @@ class PRModal extends Component {
 
   handleButtonClicked = (event) => {
     console.log("Button click " + event.currentTarget.value)
-    var addedWeight = event.currentTarget.value
+    var addedWeight = parseInt(event.currentTarget.value)
     console.log(addedWeight)
     this.setState({
       currentWeight: this.state.currentWeight + addedWeight,
-      message: 'Button ${event.currentTarget.value} clicked'
+      // message: 'Button ${event.currentTarget.value} clicked'
     })
-    console.log(this.currentWeight)
+    // console.log(this.state.currentWeight)
   }
 
   static getDerivedStateFromProps = (props, state) => {
@@ -114,9 +115,9 @@ class PRModal extends Component {
         <Form.Control
           type="barWeight"
           placeholder="Bar Weight"
-          defaultValue={this.state.currentWeight}
-          // onChange={this.handleInputChange}
-          name="currentWeight"
+          defaultValue={this.state.barWeight}
+          onChange={this.handleInputChange}
+          name="barWeight"
           
         />
       </Form.Group>
@@ -136,31 +137,16 @@ class PRModal extends Component {
 
       <Form.Group controlId="formGroupCurrentWeight">
         <Form.Label>Current Weight:</Form.Label>
-        <Form.Control
-          type="currentWeight"
-          placeholder="Current Weight"
-          defaultValue={this.state.currentWeight}
-          // onChange={this.handleInputChange}
-          name="currentWeight"
-          
-        />
+        <Form.Label>
+        {this.state.currentWeight + parseInt(this.state.barWeight)}
+        </Form.Label>
+        
       </Form.Group>
 
       <Form.Group controlId="weightButtons">
-        {/* [1, 2.5, 5].map(buttonId => (
-          <Button key={buttonId} value={buttonId} variant="outline-dark">
-            button {buttonId}
-          </Button>
-        )) */}
-        {/* <Form.Label>Current Weight:</Form.Label> */}
-        <Button variant="outline-dark" id="weight" value={2} onClick={this.handleButtonClicked}>1lb</Button>
-        <Button variant="outline-dark" id="weight" value={5} onClick={this.handleButtonClicked}>2.5lb</Button>
-        <Button variant="outline-dark" id="weight" value={10} onClick={this.handleButtonClicked}>5lb</Button>  
-        <Button variant="outline-dark" id="weight" value={20} onClick={this.handleButtonClicked}>10lb</Button>
-        <Button variant="outline-dark" id="weight" value={30} onClick={this.handleButtonClicked}>15lb</Button> 
-        <Button variant="outline-dark" id="weight" value={50} onClick={this.handleButtonClicked}>25lb</Button> 
-        <Button variant="outline-dark" id="weight" value={90} onClick={this.handleButtonClicked}>45lb</Button> 
-        <Button variant="outline-dark" id="lastWeight" value={200} onClick={this.handleButtonClicked}>100lb</Button> 
+        {[1, 2.5, 5, 10, 15, 25, 45, 100].map((buttonValue) => 
+          <Button variant="outline-dark" id="weight" key={buttonValue} value={2 * buttonValue} onClick={this.handleButtonClicked}>{buttonValue} lb</Button>
+        )}
         
       </Form.Group>
 

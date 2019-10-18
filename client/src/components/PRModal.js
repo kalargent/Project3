@@ -15,8 +15,9 @@ class PRModal extends Component {
     liftName: "",
     reps: "",
     pr: "",
-    show: false
-  }
+    show: false, 
+    currentWeight:0
+    }
 
   handleClose = () => {
     // this.props.toggle()
@@ -96,6 +97,51 @@ class PRModal extends Component {
           name="reps"
         />
       </Form.Group>
+
+      <Form.Group controlId="barDisplay">
+       <div>
+         <table>
+           <tbody>
+             <tr>
+               <td>=== 0 lb ===</td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+        
+      </Form.Group>
+
+      <Form.Group controlId="formGroupCurrentWeight">
+        <Form.Label>Current Weight:</Form.Label>
+        <Form.Control
+          type="currentWeight"
+          placeholder="Current Weight"
+          defaultValue={this.state.currentWeight}
+          // onChange={this.handleInputChange}
+          name="currentWeight"
+          
+        />
+      </Form.Group>
+
+      <Form.Group controlId="weightButtons">
+        {/* <Form.Label>Current Weight:</Form.Label> */}
+        <Button>1lb</Button> 
+        <Button>2.5lb</Button>
+        <Button>5lb</Button>  
+        <Button>10lb</Button>
+        <Button>15lb</Button> 
+        <Button>25lb</Button> 
+        <Button>45lb</Button> 
+        <Button>100lb</Button> 
+        
+      </Form.Group>
+
+      <Form.Group controlId="removeLast">
+  
+        <Button>Remove Last Weight</Button> 
+        
+      </Form.Group>
+
       <Form.Group controlId="formGroupPR">
         <Form.Label>Personal Record:</Form.Label>
         <Form.Control

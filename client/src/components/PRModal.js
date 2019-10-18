@@ -61,6 +61,17 @@ class PRModal extends Component {
     // this.setState();
   }
 
+  handleButtonClicked = (event) => {
+    console.log("Button click " + event.currentTarget.value)
+    var addedWeight = event.currentTarget.value
+    console.log(addedWeight)
+    this.setState({
+      currentWeight: this.state.currentWeight + addedWeight,
+      message: 'Button ${event.currentTarget.value} clicked'
+    })
+    console.log(this.currentWeight)
+  }
+
   static getDerivedStateFromProps = (props, state) => {
     console.log(props, state)
     return {show: props.show}
@@ -136,21 +147,26 @@ class PRModal extends Component {
       </Form.Group>
 
       <Form.Group controlId="weightButtons">
+        {/* [1, 2.5, 5].map(buttonId => (
+          <Button key={buttonId} value={buttonId} variant="outline-dark">
+            button {buttonId}
+          </Button>
+        )) */}
         {/* <Form.Label>Current Weight:</Form.Label> */}
-        <Button>1lb</Button> 
-        <Button>2.5lb</Button>
-        <Button>5lb</Button>  
-        <Button>10lb</Button>
-        <Button>15lb</Button> 
-        <Button>25lb</Button> 
-        <Button>45lb</Button> 
-        <Button>100lb</Button> 
+        <Button variant="outline-dark" id="weight" value={2} onClick={this.handleButtonClicked}>1lb</Button>
+        <Button variant="outline-dark" id="weight" value={5} onClick={this.handleButtonClicked}>2.5lb</Button>
+        <Button variant="outline-dark" id="weight" value={10} onClick={this.handleButtonClicked}>5lb</Button>  
+        <Button variant="outline-dark" id="weight" value={20} onClick={this.handleButtonClicked}>10lb</Button>
+        <Button variant="outline-dark" id="weight" value={30} onClick={this.handleButtonClicked}>15lb</Button> 
+        <Button variant="outline-dark" id="weight" value={50} onClick={this.handleButtonClicked}>25lb</Button> 
+        <Button variant="outline-dark" id="weight" value={90} onClick={this.handleButtonClicked}>45lb</Button> 
+        <Button variant="outline-dark" id="lastWeight" value={200} onClick={this.handleButtonClicked}>100lb</Button> 
         
       </Form.Group>
 
       <Form.Group controlId="removeLast">
   
-        <Button>Remove Last Weight</Button> 
+        <Button variant="outline-dark">Remove Last Weight</Button> 
         
       </Form.Group>
 

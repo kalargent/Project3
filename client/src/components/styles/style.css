@@ -123,9 +123,17 @@ td {
 }
 
 .modal-header {
-    background-color: rgb(81, 110, 134);
+    background-color: black;
 }
 
 .modal-footer {
-    background-color: rgb(81, 110, 134);
+    background-color: black;
+}
+
+#weight {
+    margin-right: 5px;
+}
+
+#lastWeight {
+    margin-top: 5px;
 }

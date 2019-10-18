@@ -98,6 +98,18 @@ class PRModal extends Component {
         />
       </Form.Group>
 
+      <Form.Group controlId="formGroupBarWeight">
+        <Form.Label>Bar Weight:</Form.Label>
+        <Form.Control
+          type="barWeight"
+          placeholder="Bar Weight"
+          defaultValue={this.state.currentWeight}
+          // onChange={this.handleInputChange}
+          name="currentWeight"
+          
+        />
+      </Form.Group>
+
       <Form.Group controlId="barDisplay">
        <div>
          <table>

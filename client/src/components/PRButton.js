@@ -19,6 +19,7 @@ class PRButton extends Component {
                   className="pr-image-medium"
                   onClick={() => this.props.toggle(true)}
                   fluid="true"
+                
                   />
             </Col>
         //   </Breakpoint>

@@ -90,11 +90,11 @@ class EditModal extends Component {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => this.props.toggle(false)}>
+          <Button variant="outline-light" onClick={() => this.props.toggle(false)}>
             Close
           </Button>
           <Button
-            variant="primary"
+            variant="outline-light"
             type="submit"
             onClick={this.handleSubmit}
             // onSubmit={this.handleSubmit}

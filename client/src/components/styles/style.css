@@ -91,6 +91,7 @@ th {
 
 .pr-image-medium {
     max-width: auto;
+    height: 35px;
     cursor:pointer;
 }
 

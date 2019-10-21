@@ -122,7 +122,7 @@ class PRModal extends Component {
         />
       </Form.Group>
 
-      <Form.Group controlId="barDisplay">
+      {/* <Form.Group controlId="barDisplay">
        <div>
          <table>
            <tbody>
@@ -133,11 +133,11 @@ class PRModal extends Component {
          </table>
        </div>
         
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group controlId="formGroupCurrentWeight">
-        <Form.Label>Current Weight:</Form.Label>
-        <Form.Label>
+        <Form.Label id="current">Current Weight:</Form.Label>
+        <Form.Label id="current">
         {this.state.currentWeight + parseInt(this.state.barWeight)}
         </Form.Label>
         

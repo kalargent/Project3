@@ -131,9 +131,10 @@ td {
 }
 
 #weight {
-    margin-right: 5px;
+    margin: 5px;
 }
 
-#lastWeight {
-    margin-top: 5px;
+#current {
+    font-size: 24px;
 }
+

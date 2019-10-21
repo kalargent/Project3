@@ -11,7 +11,9 @@ class EditModal extends Component {
     liftName: this.props.liftName,
     reps: this.props.reps,
     pr: this.props.pr,
-    show: false
+    show: false,
+    currentWeight: 0, 
+    barWeight: 0
   };
 
   handleInputChange = event => {
@@ -35,6 +37,18 @@ class EditModal extends Component {
       window.location.reload();
     });
   };
+
+  handleButtonClicked = (event) => {
+    console.log("Button click " + event.currentTarget.value)
+    var addedWeight = parseInt(event.currentTarget.value)
+    console.log(addedWeight)
+    this.setState({
+      currentWeight: this.state.currentWeight + addedWeight,
+      // message: 'Button ${event.currentTarget.value} clicked'
+    })
+    // console.log(this.state.currentWeight)
+  }
+
 
   static getDerivedStateFromProps = (props, state) => {
     console.log(props, state);
@@ -76,6 +90,38 @@ class EditModal extends Component {
               onChange={this.handleInputChange}
               name="reps"
             />
+            <Form.Group controlId="formGroupBarWeight">
+              <Form.Label>Bar Weight:</Form.Label>
+              <Form.Control
+                type="barWeight"
+                placeholder="Bar Weight"
+                defaultValue={this.state.barWeight}
+                onChange={this.handleInputChange}
+                name="barWeight"
+              />
+            </Form.Group>
+            <Form.Group controlId="formGroupCurrentWeight">
+              <Form.Label id="current">Current Weight:</Form.Label>
+              <Form.Label id="current">
+                {this.state.currentWeight + parseInt(this.state.barWeight)}
+              </Form.Label>
+            </Form.Group>
+            <Form.Group controlId="weightButtons">
+              {[1, 2.5, 5, 10, 15, 25, 45, 100].map(buttonValue => (
+                <Button
+                  variant="outline-dark"
+                  id="weight"
+                  key={buttonValue}
+                  value={2 * buttonValue}
+                  onClick={this.handleButtonClicked}
+                >
+                  {buttonValue} lb
+                </Button>
+              ))}
+            </Form.Group>
+            <Form.Group controlId="removeLast">
+              <Button variant="outline-dark">Remove Last Weight</Button>
+            </Form.Group>
           </Form.Group>
           <Form.Group controlId="formGroupPR">
             <Form.Label>Personal Record:</Form.Label>
@@ -90,7 +136,10 @@ class EditModal extends Component {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="outline-light" onClick={() => this.props.toggle(false)}>
+          <Button
+            variant="outline-light"
+            onClick={() => this.props.toggle(false)}
+          >
             Close
           </Button>
           <Button

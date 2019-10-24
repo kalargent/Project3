@@ -82,6 +82,9 @@ class PRModal extends Component {
     this.setState(state => {
       const currentWeight = this.state.currentWeight.concat(addedWeight); 
       console.log(this.state.currentWeight, " <-- current weight state")
+      const add = (a, b) => a + b
+      const weightSum = currentWeight.reduce(add); 
+      console.log("Weight Sum ", weightSum); 
       
       return {
         currentWeight, 

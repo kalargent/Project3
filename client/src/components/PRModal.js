@@ -99,6 +99,11 @@ class PRModal extends Component {
     
   }
 
+  clearAll = (event) => {
+    this.state.currentWeight = 0; 
+    console.log("cleared ", this.state.currentWeight)
+  }
+
   static getDerivedStateFromProps = (props, state) => {
     console.log(props, state)
     return {show: props.show}
@@ -181,6 +186,13 @@ class PRModal extends Component {
         <Button variant="outline-dark" onClick={this.removeLast}>Remove Last Weight</Button> 
         
       </Form.Group>
+
+      <Form.Group controlId="clearCurrent">
+  
+        <Button variant="outline-dark" onClick={this.clearAll}>Clear All </Button> 
+        
+      </Form.Group>
+
 
       <Form.Group controlId="formGroupPR">
         <Form.Label>Personal Record:</Form.Label>

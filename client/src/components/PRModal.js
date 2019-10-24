@@ -16,7 +16,7 @@ class PRModal extends Component {
     reps: "",
     pr: "",
     show: false, 
-    currentWeight: 0, 
+    currentWeight: [], 
     barWeight: 0
     }
 
@@ -62,15 +62,31 @@ class PRModal extends Component {
     // this.setState();
   }
 
-  handleButtonClicked = (event) => {
-    console.log("Button click " + event.currentTarget.value)
+  // handleButtonClicked = (event) => {
+  //   console.log("Button click " + event.currentTarget.value)
+  //   var addedWeight = parseInt(event.currentTarget.value)
+  //   console.log(addedWeight)
+  //   var newarray = this.state.currentWeight.push(addedWeight)
+  //   console.log ("new array is ", newarray)
+  //   console.log(this.state.currentWeight,  " <-- that is currentweight state")
+  //   this.setState({
+  //     currentWeight: newarray,
+  //     // message: 'Button ${event.currentTarget.value} clicked'
+  //   })
+  //   // console.log(this.state.currentWeight)
+  // }
+
+  onAddItem =(event) => {
     var addedWeight = parseInt(event.currentTarget.value)
     console.log(addedWeight)
-    this.setState({
-      currentWeight: this.state.currentWeight + addedWeight,
-      // message: 'Button ${event.currentTarget.value} clicked'
+    this.setState(state => {
+      const currentWeight = this.state.currentWeight.concat(addedWeight); 
+      console.log(this.state.currentWeight, " <-- current weight state")
+      
+      return {
+        currentWeight, 
+      }
     })
-    // console.log(this.state.currentWeight)
   }
 
   static getDerivedStateFromProps = (props, state) => {
@@ -145,7 +161,7 @@ class PRModal extends Component {
 
       <Form.Group controlId="weightButtons">
         {[1, 2.5, 5, 10, 15, 25, 45, 100].map((buttonValue) => 
-          <Button variant="outline-dark" id="weight" key={buttonValue} value={2 * buttonValue} onClick={this.handleButtonClicked}>{buttonValue} lb</Button>
+          <Button variant="outline-dark" id="weight" key={buttonValue} value={2 * buttonValue} onClick={this.onAddItem}>{buttonValue} lb</Button>
         )}
         
       </Form.Group>

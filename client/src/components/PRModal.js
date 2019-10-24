@@ -76,7 +76,7 @@ class PRModal extends Component {
   //   // console.log(this.state.currentWeight)
   // }
 
-  onAddItem =(event) => {
+  onAddItem = (event) => {
     var addedWeight = parseInt(event.currentTarget.value)
     console.log(addedWeight)
     this.setState(state => {
@@ -90,6 +90,13 @@ class PRModal extends Component {
         currentWeight, 
       }
     })
+  }
+
+  removeLast = (event) => {
+    this.state.currentWeight.pop(); 
+    console.log("item removed");
+    console.log(this.state.currentWeight, " < -- was the last one removed?"); 
+    
   }
 
   static getDerivedStateFromProps = (props, state) => {
@@ -171,7 +178,7 @@ class PRModal extends Component {
 
       <Form.Group controlId="removeLast">
   
-        <Button variant="outline-dark">Remove Last Weight</Button> 
+        <Button variant="outline-dark" onClick={this.removeLast}>Remove Last Weight</Button> 
         
       </Form.Group>
 

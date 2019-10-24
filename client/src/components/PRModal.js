@@ -91,6 +91,8 @@ class PRModal extends Component {
   };
 
   removeLast = event => {
+    
+    if (this.state.currentWeight.length > 1) {
     this.state.currentWeight.pop();
   
     this.setState(state => {
@@ -105,7 +107,25 @@ class PRModal extends Component {
         weightSum
       };
     });
-  };
+  }
+  else {
+    this.state.currentWeight = [];
+    this.state.weightSum = 0;
+
+    this.setState(state => {
+      let currentWeight = this.state.currentWeight;
+     
+      // let add = (a, b) => a + b;
+      let weightSum = this.state.currentWeight;
+      // console.log("Weight Sum ", weightSum);
+
+      return {
+        currentWeight,
+        weightSum
+      };
+    });
+  }
+};
 
   clearAll = event => {
     this.state.currentWeight = [];

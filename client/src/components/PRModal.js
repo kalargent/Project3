@@ -17,7 +17,8 @@ class PRModal extends Component {
     pr: "",
     show: false, 
     currentWeight: [], 
-    barWeight: 0
+    barWeight: 0,   
+    weightSum: 0
     }
 
   handleClose = () => {
@@ -88,6 +89,7 @@ class PRModal extends Component {
       
       return {
         currentWeight, 
+        weightSum
       }
     })
   }
@@ -169,7 +171,7 @@ class PRModal extends Component {
       <Form.Group controlId="formGroupCurrentWeight">
         <Form.Label id="current">Current Weight:</Form.Label>
         <Form.Label id="current">
-        {this.state.currentWeight + parseInt(this.state.barWeight)}
+        {this.state.weightSum + parseInt(this.state.barWeight)}
         </Form.Label>
         
       </Form.Group>

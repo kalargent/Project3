@@ -100,7 +100,7 @@ class PRModal extends Component {
   }
 
   clearAll = (event) => {
-    this.state.currentWeight = 0; 
+    this.state.currentWeight = []; 
     console.log("cleared ", this.state.currentWeight)
   }
 

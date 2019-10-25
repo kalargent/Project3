@@ -12,8 +12,9 @@ class EditModal extends Component {
     reps: this.props.reps,
     pr: this.props.pr,
     show: false,
-    currentWeight: 0, 
-    barWeight: 0
+    currentWeight: [], 
+    barWeight: 0, 
+    weightSum: 0
   };
 
   handleInputChange = event => {
@@ -38,16 +39,89 @@ class EditModal extends Component {
     });
   };
 
-  handleButtonClicked = (event) => {
-    console.log("Button click " + event.currentTarget.value)
-    var addedWeight = parseInt(event.currentTarget.value)
-    console.log(addedWeight)
-    this.setState({
-      currentWeight: this.state.currentWeight + addedWeight,
-      // message: 'Button ${event.currentTarget.value} clicked'
-    })
-    // console.log(this.state.currentWeight)
+  // handleButtonClicked = (event) => {
+  //   console.log("Button click " + event.currentTarget.value)
+  //   var addedWeight = parseInt(event.currentTarget.value)
+  //   console.log(addedWeight)
+  //   this.setState({
+  //     currentWeight: this.state.currentWeight + addedWeight,
+  //     message: 'Button ${event.currentTarget.value} clicked'
+  //   })
+  //   console.log(this.state.currentWeight)
+  // }
+
+  onAddItem = event => {
+    var addedWeight = parseInt(event.currentTarget.value);
+    console.log(addedWeight);
+    this.setState(state => {
+      let currentWeight = this.state.currentWeight.concat(addedWeight);
+      console.log(this.state.currentWeight, " <-- current weight state");
+      let add = (a, b) => a + b;
+      let weightSum = currentWeight.reduce(add);
+      console.log("Weight Sum ", weightSum);
+
+      return {
+        currentWeight,
+        weightSum
+      };
+    });
+  };
+
+  removeLast = event => {
+    
+    if (this.state.currentWeight.length > 1) {
+    this.state.currentWeight.pop();
+  
+    this.setState(state => {
+      let currentWeight = this.state.currentWeight;
+     
+      let add = (a, b) => a + b;
+      let weightSum = currentWeight.reduce(add);
+      console.log("Weight Sum ", weightSum);
+
+      return {
+        currentWeight,
+        weightSum
+      };
+    });
   }
+  else {
+    this.state.currentWeight = [];
+    this.state.weightSum = 0;
+
+    this.setState(state => {
+      let currentWeight = this.state.currentWeight;
+     
+      // let add = (a, b) => a + b;
+      let weightSum = this.state.currentWeight;
+      // console.log("Weight Sum ", weightSum);
+
+      return {
+        currentWeight,
+        weightSum
+      };
+    });
+  }
+};
+
+  clearAll = event => {
+    this.state.currentWeight = [];
+    this.state.weightSum = 0;
+
+    this.setState(state => {
+      let currentWeight = this.state.currentWeight;
+     
+      // let add = (a, b) => a + b;
+      let weightSum = this.state.currentWeight;
+      // console.log("Weight Sum ", weightSum);
+
+      return {
+        currentWeight,
+        weightSum
+      };
+    });
+    console.log("cleared ", this.state.currentWeight);
+  };
 
 
   static getDerivedStateFromProps = (props, state) => {
@@ -103,7 +177,7 @@ class EditModal extends Component {
             <Form.Group controlId="formGroupCurrentWeight">
               <Form.Label id="current">Current Weight:</Form.Label>
               <Form.Label id="current">
-                {this.state.currentWeight + parseInt(this.state.barWeight)}
+              {this.state.weightSum + parseInt(this.state.barWeight)}
               </Form.Label>
             </Form.Group>
             <Form.Group controlId="weightButtons">
@@ -113,16 +187,23 @@ class EditModal extends Component {
                   id="weight"
                   key={buttonValue}
                   value={2 * buttonValue}
-                  onClick={this.handleButtonClicked}
+                  onClick={this.onAddItem}
                 >
                   {buttonValue} lb
                 </Button>
               ))}
             </Form.Group>
             <Form.Group controlId="removeLast">
-              <Button variant="outline-dark">Remove Last Weight</Button>
+              <Button variant="outline-dark"onClick={this.removeLast}>Remove Last Weight</Button>
             </Form.Group>
           </Form.Group>
+
+          <Form.Group controlId="clearCurrent">
+            <Button variant="outline-dark" onClick={this.clearAll}>
+              Clear All{" "}
+            </Button>
+          </Form.Group>
+
           <Form.Group controlId="formGroupPR">
             <Form.Label>Personal Record:</Form.Label>
             <Form.Control

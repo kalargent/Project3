@@ -69,14 +69,19 @@ class EditModal extends Component {
 
   removeLast = event => {
     
-    if (this.state.currentWeight.length > 1) {
-    this.state.currentWeight.pop();
+    // if (this.state.currentWeight.length > 1) {
+    // this.state.currentWeight.pop();
   
     this.setState(state => {
-      let currentWeight = this.state.currentWeight;
+      let currentWeight = []; 
+      if (this.state.currentWeight.length >1){
+        currentWeight = this.state.currentWeight.slice(0, -1);
+          
+      } 
+      console.log("new current weight is ", currentWeight);
      
       let add = (a, b) => a + b;
-      let weightSum = currentWeight.reduce(add);
+      let weightSum = currentWeight.reduce(add, 0);
       console.log("Weight Sum ", weightSum);
 
       return {
@@ -84,40 +89,40 @@ class EditModal extends Component {
         weightSum
       };
     });
-  }
-  else {
-    this.state.currentWeight = [];
-    this.state.weightSum = 0;
+  // }
+  // else {
+  //   // this.state.currentWeight = [];
+  //   // this.state.weightSum = 0;
 
-    this.setState(state => {
-      let currentWeight = this.state.currentWeight;
+  //   this.setState(state => {
+  //     let currentWeight = this.state.currentWeight;
      
-      // let add = (a, b) => a + b;
-      let weightSum = this.state.currentWeight;
-      // console.log("Weight Sum ", weightSum);
+  //     // let add = (a, b) => a + b;
+  //     let weightSum = this.state.currentWeight;
+  //     // console.log("Weight Sum ", weightSum);
 
-      return {
-        currentWeight,
-        weightSum
-      };
-    });
-  }
+  //     return {
+  //       currentWeight,
+  //       weightSum
+  //     };
+  //   });
+  // }
 };
 
   clearAll = event => {
-    this.state.currentWeight = [];
-    this.state.weightSum = 0;
+    // this.state.currentWeight = [];
+    // this.state.weightSum = 0;
 
     this.setState(state => {
-      let currentWeight = this.state.currentWeight;
+      // let currentWeight = this.state.currentWeight;
      
       // let add = (a, b) => a + b;
-      let weightSum = this.state.currentWeight;
+      // let weightSum = this.state.currentWeight;
       // console.log("Weight Sum ", weightSum);
 
       return {
-        currentWeight,
-        weightSum
+        currentWeight: [],
+        weightSum: 0
       };
     });
     console.log("cleared ", this.state.currentWeight);

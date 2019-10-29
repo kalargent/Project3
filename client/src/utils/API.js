@@ -14,7 +14,7 @@ export default {
     console.log("i logged in");
     return axios.post("/api/auth/login", loginUser).then(function(loggedIn) {
       // JSON.stringify(loginUser);
-      console.log(loggedIn);
+      // console.log(loggedIn);
       var user = {
         user: loggedIn.data.id,
         token: loggedIn.data.token

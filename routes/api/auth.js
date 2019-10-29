@@ -29,9 +29,10 @@ router.post('/login', (req, res) => {
         // console.log("inside auth")
         if (err || !user) {
             return res.status(400).json({
-                message: 'Something is not right',
+                message: 'Username/Password combination not found. Please try again.',
                 user   : user
             });
+            
         } 
        req.login(user, {session: false}, (err) => {
         //    console.log("inside login")

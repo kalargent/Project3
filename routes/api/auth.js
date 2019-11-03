@@ -29,9 +29,10 @@ router.post('/login', (req, res) => {
         // console.log("inside auth")
         if (err || !user) {
             return res.status(400).json({
-                message: 'Something is not right',
+                message: 'Username/Password combination not found. Please try again.',
                 user   : user
             });
+            
         } 
        req.login(user, {session: false}, (err) => {
         //    console.log("inside login")
@@ -70,6 +71,7 @@ router.route('/register').post((req, res) => {
     //check required fields 
     if (!username || !email || !password) {
         errors.push({ msg: "Please fill in all fields." }); 
+        // console.log(errors); 
     }
 
     // check for password match 
@@ -87,6 +89,7 @@ router.route('/register').post((req, res) => {
             success:false,  
             errors:errors
         })
+        console.log(errors); 
     } else {
         // Validation passed 
         console.log ("you're in else"); 

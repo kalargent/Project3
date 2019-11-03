@@ -20,7 +20,12 @@ class Login extends Component {
       this.props.toggleLogin(false);
       this.props.togglePRButton(true);
       this.props.toggleLogoutButton(true); 
+    })
+    .catch((err) => { 
+      console.log("log in err ", err.response.data.message)
+      alert(err.response.data.message)
     });
+
     console.log(loginUser);
   };
 
